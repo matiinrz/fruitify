@@ -1,0 +1,85 @@
+@font-face {
+  font-family: IrSans;
+  src: url('/fonts/iran-sans/persian-number.woff') format('woff');
+  src: url('/fonts/iran-sans/persian-number.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Peyda;
+  src: url('/fonts/peyda.woff') format('woff');
+  src: url('/fonts/peyda.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Kalameh;
+  src: url('/fonts/kalameh.woff') format('woff');
+  src: url('/fonts/kalameh.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal
+}
+
+* {
+  font-family: IrSans, serif;
+}
+
+.kalameh-title {
+  font-family: Kalameh !important;
+  font-weight: bold !important;
+  font-size: 5vh !important;
+}
+
+.kalameh-sub {
+  font-family: Kalameh !important;
+  font-weight: bold !important;
+  font-size: 2vh !important;
+}
+
+.peyda {
+  font-family: Peyda !important;
+}
+
+.glasses {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-image {
+  background-image: url("/images/bg.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  // opacity: 0.6;
+  height: 100vh;
+  background-size: cover;
+}
+
+h1 {
+  font-family: Peyda !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+.z-3 {
+  z-index: 3 !important;
+}
+
+.z-4 {
+  z-index: 4 !important;
+}
+
+.v-toolbar-title {
+  font-family: Kalameh !important;
+  font-size: 16px !important;
+}
+
+.card-size {
+  max-width: 800px !important;
+}
