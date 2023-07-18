@@ -43,6 +43,9 @@
     </v-container>
 </template>
 <script setup>
+
+import { toast } from 'vue3-toastify';
+const router = useRouter()
 const proType = ref({ type: "", weight: "" })
 const object = ref({
     type: []
@@ -51,8 +54,20 @@ const setType = () => {
     object.value.type.push(proType.value)
     proType.value = { type: "", weight: "" }
 }
+const setExit = async() => {
+    const {data , error} = await api('api/egress' , {
+    method:"POST",
+    key:"exit_post",
+    body : {...object.value}
+})
+if(error?.value){
+    errors.value = error.value.data.errors
+}else{
+    toast.success("عملیات با موفقیت انجام شد")
+    router.push('/')
+}
 
-
+}
 const cleared = async (value) => {
     object.value.type = object.value.type.filter(arr => {
         return arr.type !== value;
