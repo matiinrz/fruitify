@@ -7,7 +7,7 @@
     </v-container>
 </template>
 <script setup>
-
+    
 </script>
 <style scoped>
 .bg-pic {

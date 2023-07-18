@@ -6,13 +6,11 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
-                <v-text-field label="شماره پلاک" />
+                <v-text-field label="شماره پلاک" type="Number" />
                 <persian-date-picker label="تاریخ" />
                 <v-text-field label="نوع محصول" />
                 <v-text-field label="وزن" type="number" />
-                <v-text-field label="وزن" type="number" />
                 <camera-picker v-model="image" />
-                {{ image }}
             </v-card-text>
             <v-divider />
             <v-card-actions>
