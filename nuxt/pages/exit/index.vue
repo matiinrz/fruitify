@@ -6,14 +6,14 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
-                <v-text-field label="شماره پلاک" type="Number" />
-                <persian-date-picker label="تاریخ" />
+                <v-text-field label="شماره پلاک"  type="Number" />
+                <persian-date-picker label="تاریخ"  />
                 <v-row>
                     <v-col cols="6" class="pl-0">
-                        <v-text-field label="نوع محصول" v-model="proType.type" />
+                        <v-text-field label="نوع محصول" v-model="proType.type" :rules="typeRules"  />
                     </v-col>
                     <v-col cols="4" class="px-1">
-                        <v-text-field label="وزن" type="number" v-model="proType.weight" />
+                        <v-text-field label=" وزن(kg)"    type="number" v-model="proType.weight" :rules="weightRules"  />
                     </v-col>
                     <v-col cols="2" class="pr-0">
                         <v-btn size="x-small" height="46" width="46" @click="setType()">
@@ -52,9 +52,21 @@ const setType = () => {
     proType.value = { type: "", weight: "" }
 }
 
+
 const cleared = async (value) => {
     object.value.type = object.value.type.filter(arr => {
         return arr.type !== value;
     });
 }
+const weightRules = ref (
+[
+(v) => !!v || " وزن لازم است ",
+(v) => ( v && v.length ==0 ) || "وزن لازم است"
+]
+)
+const typeRules = ref (
+[
+(v) => !!v || " نوع نباید خالی باشد"
+]
+)
 </script>
