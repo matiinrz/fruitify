@@ -7,6 +7,7 @@
             <v-divider />
             <v-card-text>
                 <v-text-field label="شماره پلاک"  type="Number" />
+                <plateNumber />
                 <persian-date-picker label="تاریخ"  />
                 <v-row>
                     <v-col cols="6" class="pl-0">
