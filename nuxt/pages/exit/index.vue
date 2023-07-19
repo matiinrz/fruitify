@@ -34,7 +34,7 @@
             </v-card-text>
             <v-divider />
             <v-card-actions>
-                <v-btn block>تایید</v-btn>
+                <v-btn block @click="setExit()" >تایید</v-btn>
             </v-card-actions>
             <v-card-actions>
                 <v-btn block to="/" variant="outlined">بازگشت</v-btn>
