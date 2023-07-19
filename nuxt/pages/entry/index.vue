@@ -7,9 +7,10 @@
             <v-divider />
             <v-card-text>
                 <plate-picker v-model="object.plate" />
-                <persian-date-picker label="تاریخ" v-model="object.entry_date" />
-                <type-picker v-model="object.type" />
-                <camera-picker v-model="object.image" />
+                <span>{{ eroors?.plate || '' }}</span>
+                <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
+                <type-picker v-model="object.type" :errors="errors?.type" />
+                <camera-picker v-model="object.image" :errors="errors?.image" />
             </v-card-text>
             <v-divider />
             <v-card-actions>
