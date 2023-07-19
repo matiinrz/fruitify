@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('plate');
             $table->string('image')->nullable();
             $table->string('weight');
-            $table->string('type');
+            $table->json('type');
             $table->string('entry_date');
             $table->string('user_id');
             $table->string('destination');

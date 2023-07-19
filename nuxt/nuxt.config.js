@@ -112,7 +112,7 @@ export default defineNuxtConfig({
 
   pwa: {
     manifest: {
-        name: "cowalla",
+        name: "fruitify",
         icons: [
             {
                 "src": "/images/icon.jpg",

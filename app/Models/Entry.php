@@ -26,4 +26,5 @@ class Entry extends Model
         'egress_date',
         'user_id'
     ];
+
 }
