@@ -1,4 +1,5 @@
 import Vue3PersianDatetimePicker from 'vue3-persian-datetime-picker';
+import colors from 'vuetify/lib/util/colors';
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Vue3PersianDatetimePicker, {
@@ -10,7 +11,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       inputClass: 'form-control my-custom-class-name',
       placeholder: 'انتخاب کنید',
       altFormat: 'jYYYY-jMM-jDD',
-      color: '#FF9966',
+      color: colors.green.darken4,
       autoSubmit: true,
       clearable: true,
       displayFormat: 'jYYYY-jMM-jDD',
