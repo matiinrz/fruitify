@@ -9,16 +9,9 @@
                 <plate-picker v-model="object.plate" />
                 <persian-date-picker label="تاریخ" />
                 <v-row>
-                    <v-col cols="6" class="pl-0">
-                        <v-text-field label="نوع محصول" v-model="proType.type" :rules="typeRules" />
-                    </v-col>
-                    <v-col cols="4" class="px-1">
-                        <v-text-field label=" وزن(kg)" type="number" v-model="proType.weight" :rules="weightRules" />
-                    </v-col>
-                    <v-col cols="2" class="pr-0">
-                        <v-btn size="x-small" height="46" width="46" @click="setType()">
-                            <v-icon>mdi-check</v-icon>
-                        </v-btn>
+                    
+                    <v-col  >
+                        <type-picker />
                     </v-col>
                 </v-row>
                 <v-card class="mb-2" v-if="object.type.length > 0">
