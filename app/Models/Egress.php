@@ -19,6 +19,8 @@ class Egress extends Model
 {
     use HasFactory;
 
+    protected $table = 'egress';
+
     protected $fillable = [
         'plate',
         'image',
@@ -27,5 +29,9 @@ class Egress extends Model
         'egress_date',
         'user_id',
         'destination'
+    ];
+
+    protected $casts = [
+        'type' => 'json'
     ];
 }

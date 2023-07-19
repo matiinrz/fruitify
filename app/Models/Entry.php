@@ -18,6 +18,7 @@ class Entry extends Model
 {
     use HasFactory;
 
+    protected $table = 'entry';
     protected $fillable = [
         'plate',
         'picture',
@@ -25,6 +26,10 @@ class Entry extends Model
         'type',
         'egress_date',
         'user_id'
+    ];
+
+    protected $casts = [
+        'type' => 'json'
     ];
 
 }
