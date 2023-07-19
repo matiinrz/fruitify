@@ -6,7 +6,7 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
-                <plate-picker v-model="object.plate" />
+                <plate-picker v-model="object.type" :errors="errors?.type" />
                 <persian-date-picker label="تاریخ" />
                 <v-row>
                     
@@ -43,8 +43,11 @@ import { toast } from 'vue3-toastify';
 const router = useRouter()
 const proType = ref({ type: "", weight: "" })
 const object = ref({
-    type: []
-})
+    plate: "",
+    image: "",
+    type: null,
+    entry_date: "",})
+
 const setType = () => {
     object.value.type.push(proType.value)
     proType.value = { type: "", weight: "" }
@@ -79,4 +82,5 @@ const typeRules = ref(
         (v) => !!v || " نوع نباید خالی باشد"
     ]
 )
+
 </script>
