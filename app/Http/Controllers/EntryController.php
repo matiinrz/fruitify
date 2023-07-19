@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EntryRequest;
 use App\Models\Entry;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class EntryController extends Controller
         return response()->json(Entry::query()->paginate());
     }
 
-    public function store(Request $request)
+    public function store(EntryRequest $request)
     {
         $entry = new Entry();
         $entry->plate = $request->input('plate');
