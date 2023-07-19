@@ -16,8 +16,8 @@
         <v-card-text>
             <v-chip closable @click.clear="cleared(item.type)" v-for="(item, i) in type" :key="i">{{
                 item.type +
-                ',' + item.weight
-            }}</v-chip>
+                ',' + item.weight }}
+            </v-chip>
         </v-card-text>
     </v-card>
 </template>
@@ -33,7 +33,7 @@ const setType = () => {
     proType.value = { type: "", weight: "" }
 }
 
-watch(type, (newValue) => {
+watch(type.value, (newValue) => {
     emit('update:modelValue', newValue)
 })
 
@@ -41,5 +41,6 @@ const cleared = async (value) => {
     type.value = type.value.filter(arr => {
         return arr.type !== value;
     });
+    emit('update:modelValue', type.value)
 }
 </script>

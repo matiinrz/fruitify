@@ -75,13 +75,13 @@ export default defineNuxtConfig({
             propertyName: false,
           },
           user: {
-            url: '/gate/api/auth/user',
+            url: '/gate/api/user',
             method: 'get',
             propertyName: false,
           },
           logout: {
             url: '/gate/api/auth/logout',
-            method: 'delete',
+            method: 'post',
             propertyName: false,
           },
           csrf: { url: '/gate/sanctum/csrf-cookie' },
