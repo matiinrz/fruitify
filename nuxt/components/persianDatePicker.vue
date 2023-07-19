@@ -2,7 +2,7 @@
     <div class="w-100">
         <v-text-field v-model="object" :value="datetime(object)" class="cursor-pointer" :error-messages="errors" readonly
             clearable :label="label" @click.clear="cleared()" :messages="dateString" @click="makeVisible()"
-            @focus="makeVisible" />
+            @focus="makeVisible" append-inner-icon="mdi-calendar" />
 
 
         <custom-date-picker class="font-color" @change="confirm" v-model="object" :min="min" :max="max"
