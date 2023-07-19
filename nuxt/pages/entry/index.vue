@@ -7,7 +7,7 @@
             <v-divider />
             <v-card-text>
                 <plate-picker v-model="object.plate" />
-                <span>{{ eroors?.plate || '' }}</span>
+                <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
                 <type-picker v-model="object.type" :errors="errors?.type" />
                 <camera-picker v-model="object.image" :errors="errors?.image" />
@@ -27,24 +27,24 @@ definePageMeta({
     middleware: "auth",
 });
 import { toast } from 'vue3-toastify'
-
 const errors = ref([])
 const loading = ref(false)
 // entry
 const object = ref({
     plate: "",
     image: "",
-    type: null,
+    type: [],
     entry_date: "",
 
 })
+
 
 const setEntry = async () => {
     loading.value = true
     const formData = new FormData();
 
     formData.append('plate', object.value.plate);
-    formData.append('type', object.value.type);
+    formData.append('type', JSON.stringify(object.value.type));
     formData.append('entry_date', object.value.entry_date);
 
     if (object.value.image) {
