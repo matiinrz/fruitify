@@ -16,7 +16,6 @@ class EgressController extends Controller
     {
         $entry = new Egress();
         $entry->plate = $request->input('plate');
-        $entry->weight = $request->input('weight');
         $entry->type = $request->input('type');
         $entry->user_id = auth()->id();
         $entry->destination = $request->input('destination');
