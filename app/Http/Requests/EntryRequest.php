@@ -16,7 +16,8 @@ class EntryRequest extends FormRequest
         return [
             'plate' => ['required'],
             'type' => ['required', 'json'],
-            'entry_date' => ['required']
+            'entry_date' => ['required'],
+            'image' => ['nullable', 'file']
         ];
     }
 }
