@@ -16,8 +16,8 @@
         <v-card-text>
             <v-chip closable @click.clear="cleared(item.type)" v-for="(item, i) in type" :key="i">{{
                 item.type +
-                ',' + item.weight
-            }}</v-chip>
+                ',' + item.weight }}
+            </v-chip>
         </v-card-text>
     </v-card>
 </template>
