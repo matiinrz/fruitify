@@ -19,8 +19,8 @@ class EntryController extends Controller
         $entry->weight = $request->input('weight');
         $entry->type = $request->input('type');
         $entry->user_id = auth()->id();
-        if ($request->hasFile('picture')) {
-            $entry->image = $request->file('picture')->store('entry');
+        if ($request->hasFile('image')) {
+            $entry->image = $request->file('image')->store('entry');
         }
         $entry->save();
         return response()->json($entry);
