@@ -35,4 +35,12 @@ class AuthController extends Controller
         Auth::guard('web')->login($user);
         return response()->json(collect($user)->put('token', $token->plainTextToken));
     }
+    public function destroy($action)
+    {
+        auth()->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            "message" => "success"
+        ]);
+    }
 }
