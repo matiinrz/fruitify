@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EgressRequest;
 use App\Models\Egress;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class EgressController extends Controller
         return response()->json(Egress::query()->paginate());
     }
 
-    public function store(Request $request)
+    public function store(EgressRequest $request)
     {
         $entry = new Egress();
         $entry->plate = $request->input('plate');
