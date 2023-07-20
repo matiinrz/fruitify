@@ -10,7 +10,7 @@ class EgressController extends Controller
 {
     public function index()
     {
-        return response()->json(Egress::query()->paginate());
+        return response()->json(Egress::query()->orderByDesc('created_at')->paginate());
     }
 
     public function store(EgressRequest $request)
