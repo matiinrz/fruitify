@@ -32,7 +32,7 @@
                             </v-col>
 
                         </v-row>
-                        مقصد : {{ item.destination }}
+                        <div v-if="item.destination">مقصد : {{ item.destination }}</div>
                     </v-card-text>
                 </v-card>
             </v-card-text>
