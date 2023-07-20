@@ -11,9 +11,11 @@ export function getUserShow() {
 }
 
 
-export function storage(image: string) {
-    const baseUrl = process.env.STORAGE_URL
-    return '/gate/api/image/' + image
+export function imageUrl(image: string) {
+    const config = useRuntimeConfig();
+
+    const baseUrl = config.public.imageUrl
+    return baseUrl + image
 }
 
 

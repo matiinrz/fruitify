@@ -19,6 +19,7 @@ class EgressController extends Controller
         $entry->plate = $request->input('plate');
         $entry->type = $request->input('type');
         $entry->user_id = auth()->id();
+        $entry->entry_date = $request->input('entry_date');
         $entry->destination = $request->input('destination');
         if ($request->hasFile('image')) {
             $entry->image = $request->file('image')->store('entry');

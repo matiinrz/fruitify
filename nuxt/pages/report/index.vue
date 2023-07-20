@@ -20,15 +20,19 @@
                         <v-row>
                             <v-col cols="3">
                                 <v-avatar>
-                                    <v-img :src="`/images/icon.jpg`" />
+                                    <v-img :src="imageUrl(item.image) || `/images/icon.jpg`"
+                                        @click="showImageDialog(imageUrl(item.image))" />
                                 </v-avatar>
                             </v-col>
                             <v-col>
-                                <v-chip class="mx-1" v-for="(x, y) in JSON.parse(item.type)" :key="y">{{ x?.type }} , {{
-                                    x?.weight
-                                }}</v-chip>
+                                <v-chip size="small" class="ma-1" v-for="(x, y) in JSON.parse(item.type)" :key="y">{{
+                                    x?.type }} , {{
+        x?.weight
+    }}</v-chip>
                             </v-col>
+
                         </v-row>
+                        مقصد : {{ item.destination }}
                     </v-card-text>
                 </v-card>
             </v-card-text>
@@ -46,7 +50,7 @@
 definePageMeta({
     middleware: "auth",
 });
-
+const { $event } = useNuxtApp()
 const reports = ref([])
 const page = ref(1)
 
@@ -93,6 +97,10 @@ watch(reportType, (newValue) => {
 const changePage = () => {
     if (reportType.value === 'entry') getEntry()
     if (reportType.value === 'egress') getEgress()
+}
+
+const showImageDialog = (image) => {
+    $event('image-dialog', image)
 }
 
 </script>
