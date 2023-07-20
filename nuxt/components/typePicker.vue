@@ -1,7 +1,7 @@
 <template>
     <v-row>
         <v-col cols="6" class="pl-0">
-            <v-text-field label="نوع محصول" v-model="proType.type" />
+            <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" />
         </v-col>
         <v-col cols="4" class="px-1">
             <v-text-field label=" وزن(kg)" type="number" v-model="proType.weight" />

@@ -1,6 +1,6 @@
 <template>
-    <v-container class="bg-pic">
-        <v-card color="transparent" :loading="loading">
+    <v-container class="bg-pic d-flex justify-center">
+        <v-card width="600" color="transparent" :loading="loading">
             <v-row class="d-flex justify-center align-center">
                 <v-col cols="12" sm="7" md="5">
 
