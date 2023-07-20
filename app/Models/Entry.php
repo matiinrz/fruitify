@@ -29,7 +29,7 @@ class Entry extends Model
     ];
 
     protected $casts = [
-        'type' => 'json'
+        'type' => 'array'
     ];
 
 }

@@ -32,6 +32,6 @@ class Egress extends Model
     ];
 
     protected $casts = [
-        'type' => 'json'
+        'type' => 'array'
     ];
 }
