@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FruitRequest;
 use App\Models\Fruit;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class FruitController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(FruitRequest $request)
     {
         $fruit = new Fruit();
         $fruit->name = $request->input('name');
@@ -34,7 +35,7 @@ class FruitController extends Controller
         return response()->json($fruit);
     }
 
-    public function update(Request $request, string $id)
+    public function update(FruitRequest $request, string $id)
     {
         /* @var Fruit $fruit */
         $fruit = Fruit::query()->findOrFail($id);
