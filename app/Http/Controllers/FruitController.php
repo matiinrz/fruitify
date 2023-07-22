@@ -13,7 +13,7 @@ class FruitController extends Controller
             Fruit::query()
                 ->when($request->input('search'), function ($query, $search) {
                     $query->where('name', 'LIKE', "%$search%");
-                })
+                })->paginate()
         );
     }
 
@@ -42,6 +42,7 @@ class FruitController extends Controller
         if ($request->hasFile('image')) {
             $fruit->image = $request->file('image')->store('fruit');
         }
+        $fruit->save();
     }
 
     public function destroy(string $id)
