@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\FruitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,6 @@ Route::post('auth/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);
+    Route::resource('fruit', FruitController::class);
     Route::post('auth/logout', [AuthController::class, 'destroy']);
 });
