@@ -5,6 +5,30 @@
             <v-main class="bg-image">
                 <slot />
             </v-main>
+            <!-- <v-bottom-navigation>
+                <v-btn value="recent">
+                    <v-icon>mdi-history</v-icon>
+
+                    محصولات
+                </v-btn>
+
+                <v-btn value="favorites">
+                    <v-icon>mdi-heart</v-icon>
+
+                    ورودی
+                </v-btn>
+
+                <v-btn value="nearby">
+                    <v-icon>mdi-map-marker</v-icon>
+
+                    خروجی
+                </v-btn>
+                <v-btn value="nearby">
+                    <v-icon>mdi-map-marker</v-icon>
+
+                    گزارش
+                </v-btn>
+            </v-bottom-navigation> -->
         </v-locale-provider>
         <v-dialog v-model="imageDialog">
             <v-card>

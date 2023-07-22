@@ -41,7 +41,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       color: 'secondary',
     },
     VBtn: {
-      color: 'primary',
+      color: '#F1EDA6',
       rounded: 'md',
       textColor: 'white',
       VIcon: {
@@ -56,9 +56,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       },
     },
     VCard: {
-      elevation: 4,
+      elevation: 0,
       rounded: 'md',
-      color: 'light',
+      color: 'transparent',
     },
     VList: {
       elevation: 0,
@@ -110,7 +110,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       elevention: 0,
       color: 'primary',
       density: 'compact',
-      bgColor: 'dark',
+      bgColor: 'white',
     },
   };
 

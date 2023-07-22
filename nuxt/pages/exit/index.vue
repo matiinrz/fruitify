@@ -18,7 +18,7 @@
                 <v-btn block @click="setExit()">تایید</v-btn>
             </v-card-actions>
             <v-card-actions>
-                <v-btn block to="/" variant="outlined">بازگشت</v-btn>
+                <v-btn block to="/" variant="outlined" color="#6E5131">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
@@ -43,7 +43,7 @@ const setExit = async () => {
     const formData = new FormData();
 
     formData.append('plate', object.value.plate);
-    formData.append('type', JSON.stringify(object.value.type));
+    formData.append('type', object.value.type);
     formData.append('entry_date', object.value.entry_date);
     formData.append('destination', object.value.destination);
 
