@@ -20,7 +20,6 @@ class EntryController extends Controller
         foreach ($fruits as $fruit) {
             $entry = new Entry();
             $entry->plate = $request->input('plate');
-            $entry->type = $request->input('type');
             $entry->entry_date = $request->input('entry_date');
             $entry->weight = $fruit->weight;
             $entry->weight = $fruit->fruit_id;

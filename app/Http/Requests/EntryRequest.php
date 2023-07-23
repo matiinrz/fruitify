@@ -20,4 +20,5 @@ class EntryRequest extends FormRequest
             'image' => ['nullable', 'file']
         ];
     }
+
 }
