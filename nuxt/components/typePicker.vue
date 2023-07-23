@@ -1,9 +1,10 @@
 <template>
     <v-row>
         <v-col cols="6" class="pl-0">
-            <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" />
+            <!-- <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" /> -->
+            <fruit-picker v-model="proType.type" />
         </v-col>
-        <v-col cols="4" class="px-1">
+        <v-col cols=" 4" class="px-1">
             <v-text-field label=" وزن(kg)" type="number" v-model="proType.weight" />
         </v-col>
         <v-col cols="2" class="pr-0">

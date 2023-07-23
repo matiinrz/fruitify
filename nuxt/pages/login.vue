@@ -1,18 +1,18 @@
 <template>
-    <v-container class="bg-pic d-flex justify-center">
+    <v-container class="d-flex justify-center">
         <v-card width="600" color="transparent" :loading="loading">
-            <v-row class="d-flex justify-center align-center">
-                <v-col cols="12" sm="7" md="5">
 
-                    <v-card-text>
-                        <v-text-field label="نام کاربری" class="mt-4" v-model="username" />
-                        <v-text-field label="رمز عبور" type="password" v-model="password" />
-                    </v-card-text>
-                    <v-card-actions>
-                        <v-btn block @click="login()">تایید</v-btn>
-                    </v-card-actions>
-                </v-col>
-            </v-row>
+            <v-card-title>
+                <v-img src="/images/fruit.png" />
+            </v-card-title>
+            <v-card-text>
+                <v-text-field label="نام کاربری" class="mt-4" v-model="username" />
+                <v-text-field label="رمز عبور" type="password" v-model="password" />
+            </v-card-text>
+            <v-card-actions>
+                <v-btn block @click="login()" size="large">تایید</v-btn>
+            </v-card-actions>
+
         </v-card>
     </v-container>
 </template>

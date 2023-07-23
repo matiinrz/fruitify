@@ -52,13 +52,8 @@
 }
 
 .bg-image {
-  background-image: url("/images/bg.jpg");
-  background-size: cover;
-  background-repeat: repeat-y;
-  width: 100%;
-  // opacity: 0.6;
-  height: 100vh;
-  background-size: cover;
+  background: rgb(220,228,189);
+  background: linear-gradient(90deg, rgba(220,228,189,1) 0%, rgba(208,223,200,1) 100%);
 }
 
 h1 {

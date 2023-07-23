@@ -41,7 +41,7 @@
             </v-card-actions>
             <v-card-actions>
 
-                <v-btn variant="outlined" block to="/">بازگشت</v-btn>
+                <v-btn variant="outlined" block to="/" color="#6E5131">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
@@ -104,3 +104,9 @@ const showImageDialog = (image) => {
 }
 
 </script>
+<style scoped>
+.report-bg {
+    background: rgb(236, 235, 171) !important;
+    height: 95vh !important;
+}
+</style>
