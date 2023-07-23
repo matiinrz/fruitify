@@ -21,8 +21,8 @@ class EntryController extends Controller
             $entry = new Entry();
             $entry->plate = $request->input('plate');
             $entry->entry_date = $request->input('entry_date');
-            $entry->weight = $fruit->weight;
-            $entry->weight = $fruit->fruit_id;
+            $entry->weight = $fruit['weight'];
+            $entry->fruit_id = $fruit['fruit_id'];
             $entry->user_id = auth()->id();
             if ($request->hasFile('image')) {
                 $entry->image = $request->file('image')->store('entry');
