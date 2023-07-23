@@ -15,7 +15,7 @@ class EgressRequest extends FormRequest
     {
         return [
             'plate' => ['required'],
-            'type' => ['required', 'json'],
+            'type' => ['required'],
             'entry_date' => ['required'],
             'destination' => ['required'],
             'image' => ['nullable', 'file']
