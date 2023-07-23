@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed user_id
  * @property mixed destination
  * @property mixed entry_date
+ * @property mixed fruit_id
  */
 class Egress extends Model
 {

@@ -14,7 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('plate');
             $table->string('image')->nullable();
-            $table->json('type');
+            $table->unsignedBigInteger('fruit_id');
+            $table->string('weight');
             $table->string('entry_date');
             $table->string('user_id');
             $table->timestamps();
