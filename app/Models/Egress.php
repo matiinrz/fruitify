@@ -36,4 +36,9 @@ class Egress extends Model
     protected $casts = [
         'type' => 'array'
     ];
+
+    public function fruit()
+    {
+        return $this->belongsTo(Fruit::class);
+    }
 }

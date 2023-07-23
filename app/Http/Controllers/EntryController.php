@@ -10,7 +10,7 @@ class EntryController extends Controller
 {
     public function index()
     {
-        return response()->json(Entry::query()->orderByDesc('created_at')->paginate());
+        return response()->json(Entry::query()->with('fruit')->orderByDesc('created_at')->paginate());
     }
 
     public function store(EntryRequest $request)

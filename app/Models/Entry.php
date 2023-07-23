@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed entry_date
  * @property mixed user_id
  * @property false|mixed|string picture
+ * @property mixed fruit_id
  */
 class Entry extends Model
 {
@@ -31,5 +32,8 @@ class Entry extends Model
     protected $casts = [
         'type' => 'array'
     ];
-
+    public function fruit()
+    {
+        return $this->belongsTo(Fruit::class);
+    }
 }
