@@ -15,7 +15,8 @@ class EntryController extends Controller
 
     public function store(EntryRequest $request)
     {
-        $fruits = $request->input('type');
+
+        $fruits = json_decode($request->input('type'));
         foreach ($fruits as $fruit) {
             $entry = new Entry();
             $entry->plate = $request->input('plate');
