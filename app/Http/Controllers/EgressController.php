@@ -16,7 +16,7 @@ class EgressController extends Controller
     public function store(EgressRequest $request)
     {
 
-        $fruits = $request->input('type');
+        $fruits = json_decode($request->input('type'));
         foreach ($fruits as $fruit) {
 
             $entry = new Egress();
