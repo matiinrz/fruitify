@@ -42,6 +42,7 @@ const getFruit = async () => {
 
 getFruit()
 
+if (modelValue == "") fruitName.value = ""
 const setFruit = async (item) => {
     fruitName.value = item.name
     emit('update:modelValue', item.id)

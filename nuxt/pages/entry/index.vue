@@ -44,7 +44,7 @@ const setEntry = async () => {
     const formData = new FormData();
 
     formData.append('plate', object.value.plate);
-    formData.append('type', object.value.type);
+    formData.append('type', JSON.stringify(object.value.type));
     formData.append('entry_date', object.value.entry_date);
 
     if (object.value.image) {

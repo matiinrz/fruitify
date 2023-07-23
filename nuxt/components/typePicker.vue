@@ -2,36 +2,69 @@
     <v-row>
         <v-col cols="6" class="pl-0">
             <!-- <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" /> -->
-            <fruit-picker v-model="proType.type" />
+            <!-- <fruit-picker v-model="proType.fruit_id" /> -->
+            <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
         </v-col>
         <v-col cols=" 4" class="px-1">
             <v-text-field label=" وزن(kg)" type="number" v-model="proType.weight" />
         </v-col>
         <v-col cols="2" class="pr-0">
-            <v-btn size="x-small" height="46" width="46" @click="setType()" :disabled="!proType.type || !proType.weight">
+            <v-btn size="x-small" height="46" width="46" @click="setType()"
+                :disabled="!proType.fruit_id || !proType.weight">
                 <v-icon>mdi-check</v-icon>
             </v-btn>
         </v-col>
     </v-row>
     <v-card class="mb-2" v-if="type.length > 0">
         <v-card-text>
-            <v-chip closable @click.clear="cleared(item.type)" v-for="(item, i) in type" :key="i">{{
-                item.type +
+            <v-chip closable @click.clear="cleared(item.fruit_id)" v-for="(item, i) in showType" :key="i">{{
+                item.fruit_id +
                 ',' + item.weight }}
             </v-chip>
         </v-card-text>
     </v-card>
+    <v-dialog v-model="fruitDialog">
+        <v-card color="white">
+            <v-card-title>
+                <v-text-field label="جستجو" />
+            </v-card-title>
+            <v-card-text>
+                <v-list>
+                    <v-list-item v-for="(item, i) in fruit.data" :key="i" @click="setFruit(item)">
+                        {{ item.name }}
+                    </v-list-item>
+                </v-list>
+            </v-card-text>
+            <v-card-actions class="justify-center">
+                <v-pagination v-model="filters.page" :length="fruit.last_page"
+                    @update:modelValue="getFruit()"></v-pagination>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 </template>
 <script setup>
-const proType = ref({ type: "", weight: null })
+const proType = ref({ fruit_id: "", weight: null })
+const proName = ref({ fruit_id: "", weight: null })
+const fruitDialog = ref(false)
+const fruit = ref({})
+const fruitName = ref("")
 const type = ref([])
+const showType = ref([])
+const filters = ref({
+    search: "",
+    page: 1,
+})
 let emit = defineEmits(['update:modelValue']);
 
 const { modelValue, errors } = defineProps(['modelValue', 'errors'])
 
 const setType = () => {
     type.value.push(proType.value)
-    proType.value = { type: "", weight: "" }
+    proName.value.weight = proType.value.weight
+    showType.value.push(proName.value)
+    fruitName.value = ""
+    proType.value = { fruit_id: "", weight: "" }
+    proName.value = { fruit_id: "", weight: "" }
 }
 
 watch(type.value, (newValue) => {
@@ -40,8 +73,27 @@ watch(type.value, (newValue) => {
 
 const cleared = async (value) => {
     type.value = type.value.filter(arr => {
-        return arr.type !== value;
+        return arr.fruit_id !== value;
     });
-    emit('update:modelValue', type.value)
+}
+
+const getFruit = async () => {
+    const { data, error } = await api('api/fruit', {
+        method: "GET",
+        key: "get_fruit",
+        query: { ...filters.value }
+    })
+    if (data?.value) {
+        fruit.value = data.value
+    }
+}
+
+getFruit()
+
+const setFruit = async (item) => {
+    fruitName.value = item.name
+    proType.value.fruit_id = item.id
+    proName.value.fruit_id = item.name
+    fruitDialog.value = false
 }
 </script>
