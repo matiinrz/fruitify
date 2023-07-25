@@ -18,21 +18,22 @@
                     <v-divider />
                     <v-card-text>
                         <v-row>
-                            <v-col cols="3">
+                            <v-col cols="3" v-if="item.image">
                                 <v-avatar>
-                                    <v-img :src="imageUrl(item.image) || `/images/icon.jpg`"
-                                        @click="showImageDialog(imageUrl(item.image))" />
+                                    <v-img :src="imageUrl(item.image)" @click="showImageDialog(imageUrl(item.image))" />
                                 </v-avatar>
                             </v-col>
                             <v-col>
-                                <v-chip size="small" class="ma-1" v-for="(x, y) in JSON.parse(item.type)" :key="y">{{
-                                    x?.type }} , {{
-        x?.weight
-    }}</v-chip>
+                                <v-chip size="small" class="ma-1">
+                                    {{ item?.fruit.name }} , {{ item?.weight }}
+                                    <!-- {{ item?.fruit?.name > }} , {{ item?.weight }} -->
+                                </v-chip>
                             </v-col>
+                            <v-col>
+                                <div v-if="item.destination">مقصد : {{ item.destination }}</div>
 
+                            </v-col>
                         </v-row>
-                        <div v-if="item.destination">مقصد : {{ item.destination }}</div>
                     </v-card-text>
                 </v-card>
             </v-card-text>

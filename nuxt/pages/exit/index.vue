@@ -43,7 +43,7 @@ const setExit = async () => {
     const formData = new FormData();
 
     formData.append('plate', object.value.plate);
-    formData.append('type', object.value.type);
+    formData.append('type', JSON.stringify(object.value.type));
     formData.append('entry_date', object.value.entry_date);
     formData.append('destination', object.value.destination);
 
