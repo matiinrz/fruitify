@@ -6,7 +6,7 @@
             <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
         </v-col>
         <v-col cols=" 4" class="px-1">
-            <v-text-field label=" وزن(تن)" type="number" v-model="proType.weight" />
+            <v-text-field label=" وزن(کیلوگرم)" type="number" v-model="proType.weight" />
         </v-col>
         <v-col cols="2" class="pr-0">
             <v-btn size="x-small" height="46" width="46" @click="setType()"
