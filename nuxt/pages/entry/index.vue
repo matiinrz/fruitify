@@ -6,9 +6,19 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
+                
                 <plate-picker v-model="object.plate" />
                 <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
+                <v-text-field label="مبدا" v-model="object.Origin" />
+                <v-select label="نوع مقصد"  v-model="object.destination_type"
+                    
+                    :items="destinationItems"
+                    item-title="name"
+                    item-value="value"
+                    >
+                </v-select>
+                <v-text-field label="مقصد" v-model="object.destination" />
                 <type-picker v-model="object.type" :errors="errors?.type" />
                 <camera-picker v-model="object.image" :errors="errors?.image" />
             </v-card-text>
@@ -35,9 +45,20 @@ const object = ref({
     image: "",
     type: [],
     entry_date: "",
-
+    destination: "",
+    destination_type : "",
+    Origins : "" ,
 })
-
+const OriginsItems = ref([
+    // {name:"stall" " hall" }
+    {name : "تالار" , value : "hall"},
+    {name : "غرفه" , value : "stall"},
+])
+const destinationItems = ref([
+    // {name:"stall" " hall" }
+    {name : "تالار" , value : "hall"},
+    {name : "غرفه" , value : "stall"},
+])
 
 const setEntry = async () => {
     loading.value = true
@@ -46,6 +67,10 @@ const setEntry = async () => {
     formData.append('plate', object.value.plate);
     formData.append('type', JSON.stringify(object.value.type));
     formData.append('entry_date', object.value.entry_date);
+    formData.append('origin', object.value.Origin);
+    formData.append('destination', object.value.destination);
+    formData.append('destination_type', object.value.destination_type);
+    
 
     if (object.value.image) {
         formData.append("image", object.value.image)

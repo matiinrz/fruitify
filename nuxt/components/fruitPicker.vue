@@ -1,5 +1,5 @@
 <template>
-    <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
+<v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
     <v-dialog v-model="fruitDialog">
         <v-card color="white">
             <v-card-title>
