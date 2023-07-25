@@ -17,9 +17,10 @@ class EntryRequest extends FormRequest
             'plate' => ['required'],
             'type' => ['required'],
             'entry_date' => ['required'],
-            'destination' => ['required'],
-            'origin' => ['required'],
-            'destination_type' => ['in:hall,stall'],
+            'province_id' => ['required'],
+            'city_id' => ['required'],
+            'hall_id' => ['required'],
+            'stall_id' => ['required'],
             'image' => ['nullable', 'file']
         ];
     }
