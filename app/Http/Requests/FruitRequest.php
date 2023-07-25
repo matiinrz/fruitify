@@ -21,3 +21,4 @@ class FruitRequest extends FormRequest
         ];
     }
 }
+

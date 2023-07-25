@@ -18,6 +18,9 @@ return new class extends Migration {
             $table->string('weight');
             $table->string('entry_date');
             $table->string('user_id');
+            $table->string('origin');
+            $table->enum('destination_type', ['stall', 'hall']);
+            $table->string('destination');
             $table->timestamps();
         });
     }
