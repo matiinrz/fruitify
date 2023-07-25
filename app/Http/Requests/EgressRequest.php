@@ -18,6 +18,8 @@ class EgressRequest extends FormRequest
             'type' => ['required'],
             'entry_date' => ['required'],
             'destination' => ['required'],
+            'origin' => ['required'],
+            'destination_type' => ['in:hall,stall'],
             'image' => ['nullable', 'file']
         ];
     }
