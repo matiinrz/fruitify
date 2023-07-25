@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed user_id
  * @property false|mixed|string picture
  * @property mixed fruit_id
+ * @property mixed origin
+ * @property mixed destination_type
+ * @property mixed destination
  */
 class Entry extends Model
 {

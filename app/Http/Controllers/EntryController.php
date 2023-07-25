@@ -22,8 +22,8 @@ class EntryController extends Controller
             $entry->plate = $request->input('plate');
             $entry->entry_date = $request->input('entry_date');
             $entry->destination = $request->input('destination');
-            $entry->destination = $request->input('destination_type');
-            $entry->destination = $request->input('origin');
+            $entry->destination_type = $request->input('destination_type');
+            $entry->origin = $request->input('origin');
             $entry->weight = $fruit->weight;
             $entry->fruit_id = $fruit->fruit_id;
             $entry->user_id = auth()->id();

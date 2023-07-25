@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\ProvinceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
 use App\Http\Controllers\EntryController;
@@ -27,5 +29,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);
     Route::resource('fruit', FruitController::class);
+    Route::resource('cities', CityController::class);
+    Route::resource('provinces', ProvinceController::class);
     Route::post('auth/logout', [AuthController::class, 'destroy']);
 });
