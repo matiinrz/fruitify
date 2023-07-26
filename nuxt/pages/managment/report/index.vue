@@ -42,7 +42,7 @@
             </v-card-actions>
             <v-card-actions>
 
-                <v-btn variant="outlined" block to="/" color="#6E5131">بازگشت</v-btn>
+                <v-btn variant="outlined" block to="/managment" color="#6E5131">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>

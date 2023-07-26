@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     // Add cors headers => { cors: true }
     // Add redirect headers => { redirect: '/new-page' }, { redirect: { to: '/new-page', statusCode: 302 } }
     '/': { ssr: false },
-    '/admin/**': { ssr: false },
     '/user/**': { ssr: false },
     // '/marketer/**': { ssr: false },
   },

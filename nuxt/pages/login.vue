@@ -7,7 +7,7 @@
             </v-card-title>
             <v-card-text>
                 <v-text-field label="نام کاربری" class="mt-4" v-model="username" />
-                <v-text-field label="رمز عبور" type="password" v-model="password" />
+                <v-text-field label="رمز عبور" type="Password" v-model="password" />
             </v-card-text>
             <v-card-actions>
                 <v-btn block @click="login()" size="large">تایید</v-btn>
