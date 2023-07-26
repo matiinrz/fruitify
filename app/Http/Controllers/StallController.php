@@ -36,7 +36,7 @@ class StallController extends Controller
     public function update(FruitRequest $request, string $id)
     {
         /* @var Stall $stall */
-        $stall = Fruit::query()->findOrFail($id);
+        $stall = Stall::query()->findOrFail($id);
         $stall->name = $request->input('name');
         $stall->save();
     }
