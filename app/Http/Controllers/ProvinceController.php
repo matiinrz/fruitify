@@ -11,7 +11,6 @@ class ProvinceController extends Controller
     public function index(Request $request)
     {
         return response()->json(Province::query()
-            ->where('status', 'active')
             ->when($request->input('search', false), function ($query, $search) {
                 $query->where('name', 'LIKE', "%$search%");
             })

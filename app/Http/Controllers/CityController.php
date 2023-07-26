@@ -17,7 +17,6 @@ class CityController extends Controller
     public function index(Request $request)
     {
         return response()->json(City::query()
-            ->where('status', 'active')
             ->when($request->input('province_id', false), function ($query, $province_id) {
                 $query->where('province_id', $province_id);
             })
