@@ -27,6 +27,7 @@ class EntryController extends Controller
             $entry->city_id = $request->input('city_id');
             $entry->stall_id = $request->input('stall_id');
             $entry->hall_id = $request->input('hall_id');
+            $entry->entry_date = $request->input('entry_date');
             $entry->weight = $fruit->weight;
             $entry->fruit_id = $fruit->fruit_id;
             $entry->user_id = auth()->id();
