@@ -6,7 +6,7 @@
             </v-card-title>
             <v-divider />
             <v-card-actions>
-                <v-btn block to="/fruit/create">افزودن</v-btn>
+                <v-btn block to="/managment/fruit/create">افزودن</v-btn>
             </v-card-actions>
             <v-divider />
             <v-card-subtitle class="my-2">
@@ -33,7 +33,7 @@
                     @update:modelValue="getFruit()"></v-pagination>
             </v-card-actions>
             <v-card-actions>
-                <v-btn block to="/" variant="outlined" color="#6E5131">بازگشت</v-btn>
+                <v-btn block to="/managment" variant="outlined" color="#6E5131">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>

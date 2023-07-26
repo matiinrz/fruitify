@@ -1,9 +1,9 @@
 <template>
-<v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
+    <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
     <v-dialog v-model="fruitDialog">
         <v-card color="white">
             <v-card-title>
-                <v-text-field label="جستجو" />
+                <v-text-field label="جستجو" v-model="filters.search" @keyup.enter="getFruit" />
             </v-card-title>
             <v-card-text>
                 <v-list>

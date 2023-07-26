@@ -1,14 +1,14 @@
 <template>
     <v-row>
-        <v-col  class="pl-0">
+        <v-col class="pl-0">
             <!-- <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" /> -->
             <!-- <fruit-picker v-model="proType.fruit_id" /> -->
             <v-text-field v-model="destinationName" label="نوع مقصد" @click="destinationDialog = true"></v-text-field>
         </v-col>
-       
+
         <v-col cols="2" class="pr-0">
             <v-btn size="x-small" height="46" width="46" @click="setType()"
-                :disabled="!proType.destination_id || !proType.destination ">
+                :disabled="!proType.destination_id || !proType.destination">
                 <v-icon>mdi-check</v-icon>
             </v-btn>
         </v-col>
@@ -23,27 +23,27 @@
     </v-card>
     <v-dialog v-model="destinationDialog">
         <v-card color="white">
-            
+
             <v-card-text>
                 <v-list>
-                    <v-list-item v-for="(item, i) in destination.data" :key="i" @click="setdestination (item)">
+                    <v-list-item v-for="(item, i) in destination.data" :key="i" @click="setdestination(item)">
                         {{ item.name }}
                     </v-list-item>
                 </v-list>
             </v-card-text>
             <v-card-actions class="justify-center">
-               <v-select>
-                
-               </v-select>
+                <v-select>
+
+                </v-select>
             </v-card-actions>
         </v-card>
     </v-dialog>
 </template>
 <script setup>
-const proType = ref({ destination_id: "", destination : null })
-const proName = ref({ destination_id: "", destination : null })
+const proType = ref({ destination_id: "", destination: null })
+const proName = ref({ destination_id: "", destination: null })
 const destinationDialog = ref(false)
-const destination  = ref({})
+const destination = ref({})
 const destinationName = ref("")
 const type = ref([])
 const showType = ref([])
@@ -51,7 +51,7 @@ const filters = ref({
     search: "",
     page: 1,
 })
-let emit = defineEmits(['update:modelValue']);
+let emit = defineEmits(['destinUpdate:modelValue']);
 
 const { modelValue, errors } = defineProps(['modelValue', 'errors'])
 
@@ -65,7 +65,7 @@ const setType = () => {
 }
 
 watch(type.value, (newValue) => {
-    emit('update:modelValue', newValue)
+    emit('destinUpdate:modelValue', newValue)
 })
 
 const cleared = async (value) => {

@@ -9,16 +9,25 @@
                 <plate-picker v-model="object.plate" />
                 <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
+                <v-card-subtitle class="mb-2">مبدا</v-card-subtitle>
+                <v-row>
+                    <v-col>
+                        <hall-picker v-model="object.hall_id" />
+                    </v-col>
+                    <v-col>
+                        <stall-picker v-model="object.stall_id" />
+                    </v-col>
+                </v-row>
+                <v-card-subtitle class="my-2">مقصد</v-card-subtitle>
+                <v-row>
+                    <v-col cols="6">
+                        <province-picker v-model="object.province_id" />
+                    </v-col>
+                    <v-col cols="6">
+                        <city-picker v-model="object.city_id" :provinceId="object.province_id" />
+                    </v-col>
+                </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
-                <v-text-field label="مبدا" v-model="object.origin" />
-                <v-select label="نوع مقصد"  v-model="object.destination_type"
-                    
-                    :items="destinationItems"
-                    item-title="name"
-                    item-value="value"
-                    >
-                </v-select>
-                <v-text-field label="مقصد" v-model="object.destination" />
                 <camera-picker v-model="object.image" :errors="errors?.image" />
             </v-card-text>
             <v-divider />
@@ -43,29 +52,22 @@ const object = ref({
     image: "",
     type: [],
     entry_date: "",
-    destination: "",
-    destination_type : "",
-    Origins : "" ,
+    province_id: "",
+    city_id: "",
+    hall_id: "",
+    stall_id: ""
 })
-const OriginsItems = ref([
-    // {name:"stall" " hall" }
-    {name : "تالار" , value : "hall"},
-    {name : "غرفه" , value : "stall"},
-])
-const destinationItems = ref([
-    // {name:"stall" " hall" }
-    {name : "تالار" , value : "hall"},
-    {name : "غرفه" , value : "stall"},
-])
+
 const setExit = async () => {
     loading.value = true
     const formData = new FormData();
     formData.append('plate', object.value.plate);
     formData.append('type', JSON.stringify(object.value.type));
     formData.append('entry_date', object.value.entry_date);
-    formData.append('destination', object.value.destination);
-    formData.append('destination_type' , object.value.destination_type );
-    formData.append('origin' , object.value.origin );
+    formData.append('province_id', object.value.province_id);
+    formData.append('city_id', object.value.city_id);
+    formData.append('hall_id', object.value.hall_id);
+    formData.append('stall_id', object.value.stall_id);
 
     if (object.value.image) {
         formData.append("image", object.value.image)

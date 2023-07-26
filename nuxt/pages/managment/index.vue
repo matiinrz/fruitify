@@ -6,11 +6,11 @@
             </v-card-title>
             <v-card-text>
                 <div class="card-size mt-12">
-                    <v-btn block class="mt-2" size="large" to="/entry">ثبت ورودی</v-btn>
-                    <v-btn block class="mt-2" size="large" to="/exit">ثبت خروجی</v-btn>
-                    <v-btn block class="mt-2" size="large" to="/managment" variant="tonal" color="primary">مدیریت</v-btn>
-                    <v-btn block class="mt-2" size="large" @click="logout()" variant="outlined" color="#6E5131">خروج از
-                        برنامه</v-btn>
+                    <v-btn block size="large" to="/managment/report">مشاهده گزارش</v-btn>
+                    <v-btn block class="mt-2" size="large" to="/managment/fruit">افزودن محصولات</v-btn>
+                    <v-btn block class="mt-2" size="large" to="/managment/hall">افزودن تالار</v-btn>
+                    <v-btn block class="mt-2" size="large" to="/managment/stall">افزودن غرفه</v-btn>
+                    <v-btn block class="mt-2" size="large" to="/" variant="outlined" color="#6E5131">بازگشت</v-btn>
                 </div>
             </v-card-text>
         </v-card>
@@ -20,13 +20,6 @@
 definePageMeta({
     middleware: "auth",
 });
-const router = useRouter()
-const auth = useAuth()
-
-const logout = async () => {
-    await auth.logout();
-    router.replace({ path: "/login" });
-}
 </script>
 <style scoped>
 .bg-pic {
