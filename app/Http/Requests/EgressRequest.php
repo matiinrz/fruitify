@@ -15,7 +15,7 @@ class EgressRequest extends FormRequest
     {
         return [
             'plate' => ['required'],
-            'type' => ['required', 'present', 'min:1'],
+            'type' => ['present', 'array', 'min:1'],
             'type.*' => ['required'],
             'entry_date' => ['required'],
             'province_id' => ['required'],
