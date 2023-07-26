@@ -3,7 +3,7 @@
         :error-messages="errors || ''"></v-file-input>
 </template>
 <script setup>
-let emit = defineEmits(['imageUpdate:modelValue']);
+let emit = defineEmits(['update:modelValue']);
 const { modelValue, errors } = defineProps(['modelValue', 'errors'])
 
 const file = ref(null)
@@ -16,12 +16,12 @@ const capturePhoto = () => {
 }
 
 watch(file, (newItem) => {
-    emit('imageUpdate:modelValue', newItem[0])
+    emit('update:modelValue', newItem[0])
 });
 
 
 const cleared = () => {
     file.value = null;
-    emit('imageUpdate:modelValue', "")
+    emit('update:modelValue', "")
 }
 </script>

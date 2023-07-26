@@ -17,7 +17,7 @@
     </v-dialog>
 </template>
 <script setup>
-let emit = defineEmits(['cityUpdate:modelValue']);
+let emit = defineEmits(['update:modelValue']);
 const { modelValue, errors, provinceId } = defineProps(['modelValue', 'errors', 'provinceId'])
 const cityDialog = ref(false)
 const cities = ref({})
@@ -45,7 +45,7 @@ if (modelValue == "") cityName.value = ""
 
 const setCity = async (item) => {
     cityName.value = item.name
-    emit('cityUpdate:modelValue', item.id)
+    emit('update:modelValue', item.id)
     cityDialog.value = false
 }
 </script>

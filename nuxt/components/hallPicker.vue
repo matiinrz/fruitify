@@ -20,7 +20,7 @@
     </v-dialog>
 </template>
 <script setup>
-let emit = defineEmits(['hallUpdate:modelValue']);
+let emit = defineEmits(['update:modelValue']);
 const { modelValue } = defineProps(['modelValue'])
 const hallDialog = ref(false)
 const halls = ref({})
@@ -46,7 +46,7 @@ if (modelValue == "") hallName.value = ""
 
 const setHall = async (item) => {
     hallName.value = item.name
-    emit('hallUpdate:modelValue', item.id)
+    emit('update:modelValue', item.id)
     hallDialog.value = false
 }
 </script>

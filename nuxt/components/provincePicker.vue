@@ -17,7 +17,7 @@
     </v-dialog>
 </template>
 <script setup>
-let emit = defineEmits(['provinceUpdate:modelValue']);
+let emit = defineEmits(['update:modelValue']);
 const { modelValue, errors } = defineProps(['modelValue', 'errors'])
 const provinceDialog = ref(false)
 const provinces = ref({})
@@ -43,7 +43,7 @@ if (modelValue == "") provinceName.value = ""
 
 const setProvince = async (item) => {
     provinceName.value = item.name
-    emit('provinceUpdate:modelValue', item.id)
+    emit('update:modelValue', item.id)
     provinceDialog.value = false
 }
 </script>
