@@ -5,7 +5,7 @@
             <v-card-title class="d-flex justify-center">
                 <v-img src="/images/Login.png" height="300" width="300" />
             </v-card-title>
-            <v-card-title class="text-center peyda">
+            <v-card-title class=" text-center" >
                 سازمان ميادين ميوه و تره بار <br />و ساماندهي مشاغل شهري
                 <br /> شهرداري اصفهان
             </v-card-title>

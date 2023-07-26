@@ -114,6 +114,12 @@ return [
     */
 
     'attributes' => [
+        'entry_date' => 'تاریخ ورود',
+        'hall_id' => 'تالار',
+        'plate' => 'پلاک',
+        'stall_id' => 'غرفه',
+        'fruit_id' => 'نوع',
+        'weight' => 'وزن',
         'name' => 'نام',
         'username' => 'نام کاربری',
         'email' => 'پست الکترونیکی',

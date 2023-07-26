@@ -3,7 +3,7 @@
         :error-messages="errors || ''" hide-details></v-text-field>
     <v-dialog v-model="cityDialog">
         <v-card color="white">
-            <v-card-title>
+            <v-card-title class=" text-center">
                 <v-text-field label="جستجو" v-model="filters.search" @keyup.enter="getCities" />
             </v-card-title>
             <v-card-text class="d-flex justify-center">

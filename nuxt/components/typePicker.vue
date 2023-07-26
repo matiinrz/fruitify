@@ -3,10 +3,10 @@
         <v-col cols="6" class="pl-0">
             <!-- <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" /> -->
             <!-- <fruit-picker v-model="proType.fruit_id" /> -->
-            <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
+            <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true" :error-messages="errors || ''"></v-text-field>
         </v-col>
         <v-col cols=" 4" class="px-1">
-            <v-text-field label=" وزن(کیلوگرم)" type="number" v-model="proType.weight" />
+            <v-text-field label=" وزن(کیلوگرم)" type="number" v-model="proType.weight" :error-messages="errors || ''" />
         </v-col>
         <v-col cols="2" class="pr-0">
             <v-btn size="x-small" height="46" width="46" @click="setType()"

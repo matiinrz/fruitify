@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card max-width="600">
-            <v-card-title class="peyda text-center">گزارش گیری</v-card-title>
+            <v-card-title class=" text-center" >گزارش گیری</v-card-title>
             <v-divider />
             <v-card-subtitle class="mt-2">
                 <v-select label="نوع گزارش" v-model="reportType" :items="reportsItem" item-title="name"

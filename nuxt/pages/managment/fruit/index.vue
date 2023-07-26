@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card>
-            <v-card-title class="peyda text-center">
+            <v-card-title class=" text-center">
                 مدیریت محصولات
             </v-card-title>
             <v-divider />

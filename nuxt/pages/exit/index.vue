@@ -1,7 +1,7 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
         <v-card width="600">
-            <v-card-title class="peyda text-center">
+            <v-card-title class=" text-center" >
                 ثبت خروجی
             </v-card-title>
             <v-divider />
@@ -12,19 +12,19 @@
                 <v-card-subtitle class="mb-2">مبدا</v-card-subtitle>
                 <v-row>
                     <v-col>
-                        <hall-picker v-model="object.hall_id" />
+                        <hall-picker v-model="object.hall_id" :errors="errors?.hall_id" />
                     </v-col>
                     <v-col>
-                        <stall-picker v-model="object.stall_id" />
+                        <stall-picker v-model="object.stall_id" :errors="errors?.stall_id" />
                     </v-col>
                 </v-row>
                 <v-card-subtitle class="my-2">مقصد</v-card-subtitle>
                 <v-row>
                     <v-col cols="6">
-                        <province-picker v-model="object.province_id" />
+                        <province-picker v-model="object.province_id" :errors="errors?.province_id" />
                     </v-col>
                     <v-col cols="6">
-                        <city-picker v-model="object.city_id" :provinceId="object.province_id" />
+                        <city-picker v-model="object.city_id" :provinceId="object.city_id" />
                     </v-col>
                 </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
