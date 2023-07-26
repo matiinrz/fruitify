@@ -12,7 +12,7 @@
                 <v-card-subtitle class="mb-2">مبدا</v-card-subtitle>
                 <v-row>
                     <v-col cols="6">
-                        <province-picker v-model="object.province_id" />
+                        <province-picker v-model="object.province_id" :errors="errors?.province_id" />
                     </v-col>
 
                     <v-col cols="6">

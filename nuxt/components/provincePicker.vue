@@ -1,6 +1,6 @@
 <template>
     <v-text-field v-model="provinceName" label="انتخاب استان" @click="provinceDialog = true" :error-messages="errors || ''"
-        hide-details></v-text-field>
+        ></v-text-field>
     <v-dialog v-model="provinceDialog">
         <v-card color="white">
             <v-card-title>
