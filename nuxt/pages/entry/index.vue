@@ -22,7 +22,7 @@
                 <v-card-subtitle class="my-2">مقصد</v-card-subtitle>
                 <v-row>
                     <v-col>
-                        <hall-picker v-model="object.hall_id" />
+                        <hall-picker v-model="object.hall_id " :errors="errors?.hall_id" />
                     </v-col>
                     <v-col>
                         <stall-picker v-model="object.stall_id" />
