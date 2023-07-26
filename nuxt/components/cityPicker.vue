@@ -1,5 +1,5 @@
 <template>
-    <v-text-field :disabled="!provinceId" v-model="cityName" label="انتخاب شهر" @click="getCities(); cityDialog = true"
+    <v-text-field :disabled="!provinceId" v-model="cityName" label="انتخاب شهر" @click="cityDialog = true"
         :error-messages="errors || ''" hide-details></v-text-field>
     <v-dialog v-model="cityDialog">
         <v-card color="white">
@@ -20,6 +20,8 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
+const { $listen } = useNuxtApp()
+
 const { modelValue, errors, provinceId } = defineProps(['modelValue', 'errors', 'provinceId'])
 const loading = ref(false)
 const cityDialog = ref(false)
@@ -28,16 +30,20 @@ const cityName = ref("")
 const filters = ref({
     search: "",
     page: 1,
-    province_id: null
+    province_id: 0
 })
 
-filters.value.province_id = provinceId
+const changeCityPicker = (x) => {
+    console.log('x :', x);
+    filters.value.province_id = x
+    getCities()
+}
 
 const getCities = async () => {
     loading.value = true
     const { data, error } = await api('api/cities', {
         method: "GET",
-        key: "get_cities",
+        key: "get_cities_2",
         query: { ...filters.value }
     })
     if (data?.value) {
@@ -53,5 +59,8 @@ const setCity = async (item) => {
     emit('update:modelValue', item.id)
     cityDialog.value = false
 }
+
+$listen('city-picker', changeCityPicker)
+
 </script>
     
