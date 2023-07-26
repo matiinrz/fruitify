@@ -1,5 +1,6 @@
 <template>
-    <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"></v-text-field>
+    <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true" :error-messages="errors || ''"
+    ></v-text-field>
     <v-dialog v-model="fruitDialog">
         <v-card color="white">
             <v-card-title>
@@ -21,7 +22,7 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue } = defineProps(['modelValue'])
+const { modelValue } = defineProps(['modelValue' ,'errors'])
 const fruitDialog = ref(false)
 const fruit = ref({})
 const fruitName = ref("")

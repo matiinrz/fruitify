@@ -1,5 +1,5 @@
 <template>
-    <v-text-field v-model="stallName" label="انتخاب غرفه" @click="stallDialog = true" hide-details></v-text-field>
+    <v-text-field v-model="stallName" label="انتخاب غرفه" @click="stallDialog = true" :error-messages="errors || ''"></v-text-field>
     <v-dialog v-model="stallDialog">
         <v-card color="white">
             <v-card-title>
@@ -21,7 +21,7 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue } = defineProps(['modelValue'])
+const { modelValue } = defineProps(['modelValue' , 'errors'])
 const stallDialog = ref(false)
 const stalls = ref({})
 const stallName = ref("")
