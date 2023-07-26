@@ -20,7 +20,7 @@
     </v-dialog>
 </template>
 <script setup>
-let emit = defineEmits(['stallUpdate:modelValue']);
+let emit = defineEmits(['update:modelValue']);
 const { modelValue } = defineProps(['modelValue'])
 const stallDialog = ref(false)
 const stalls = ref({})
@@ -32,7 +32,7 @@ const filters = ref({
 const getStalls = async () => {
     const { data, error } = await api('api/stalls', {
         method: "GET",
-        key: "get_halls",
+        key: "get_stalls",
         query: { ...filters.value }
     })
     if (data?.value) {
@@ -46,7 +46,7 @@ if (modelValue == "") stallName.value = ""
 
 const setStall = async (item) => {
     stallName.value = item.name
-    emit('stallUpdate:modelValue', item.id)
+    emit('update:modelValue', item.id)
     stallDialog.value = false
 }
 </script>
