@@ -12,7 +12,7 @@
                 <v-card-subtitle class="mb-2">مبدا</v-card-subtitle>
                 <v-row>
                     <v-col cols="6">
-                        <province-picker v-model="object.province_id" />
+                        <province-picker v-model="object.province_id" :errors="errors?.province_id" />
                     </v-col>
 
                     <v-col cols="6">
@@ -22,7 +22,7 @@
                 <v-card-subtitle class="my-2">مقصد</v-card-subtitle>
                 <v-row>
                     <v-col>
-                        <hall-picker v-model="object.hall_id" />
+                        <hall-picker v-model="object.hall_id " :errors="errors?.hall_id" />
                     </v-col>
                     <v-col>
                         <stall-picker v-model="object.stall_id" />
