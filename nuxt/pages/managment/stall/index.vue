@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card>
-            <v-card-title >
+            <v-card-title class=" text-center">
                 مدیریت غرفه ها
             </v-card-title>
             <v-divider />
