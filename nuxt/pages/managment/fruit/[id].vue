@@ -60,11 +60,12 @@ const setFruits = async () => {
 
     const { data, error } = await api(`api/fruit/${fruitId}`, {
         method: 'PUT',
+        key: "fruit_put",
         body: formData
     });
     if (data.value) {
         toast.success(' با موفقیت ویرایش شد')
-        useRouter().push('/fruit')
+        useRouter().push('/managment/fruit')
     } else if (error?.value?.data?.errors) {
         errors.value = error?.value?.data?.errors
     }
