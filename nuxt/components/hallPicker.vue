@@ -1,5 +1,6 @@
 <template>
-    <v-text-field v-model="hallName" label="انتخاب تالار" @click="hallDialog = true" hide-details></v-text-field>
+    <v-text-field v-model="hallName" label="انتخاب تالار" @click="hallDialog = true" :error-messages="errors || ''" 
+    ></v-text-field>
     <v-dialog v-model="hallDialog">
         <v-card color="white">
             <v-card-title>
@@ -21,7 +22,7 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue } = defineProps(['modelValue'])
+const { modelValue } = defineProps(['modelValue', 'errors' ])
 const hallDialog = ref(false)
 const halls = ref({})
 const hallName = ref("")

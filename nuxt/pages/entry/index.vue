@@ -25,7 +25,7 @@
                         <hall-picker v-model="object.hall_id " :errors="errors?.hall_id" />
                     </v-col>
                     <v-col>
-                        <stall-picker v-model="object.stall_id" />
+                        <stall-picker v-model="object.stall_id" :errors="errors?.stall_id" />
                     </v-col>
                 </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
