@@ -1,7 +1,7 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
         <v-card width="600" :loading="loading">
-            <v-card-title >
+            <v-card-title class=" text-center">
                 افزودن محصولات
             </v-card-title>
             <v-divider />
