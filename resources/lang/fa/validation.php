@@ -114,6 +114,7 @@ return [
     */
 
     'attributes' => [
+        'entry_date' => 'تاریخ ورود',
         'hall_id' => 'تالار',
         'stall_id' => 'غرفه',
         'fruit_id' => 'نوع',
