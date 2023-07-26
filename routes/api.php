@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\FruitController;
+use App\Http\Controllers\HallController;
+use App\Http\Controllers\StallController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +33,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('fruit', FruitController::class);
     Route::resource('cities', CityController::class);
     Route::resource('provinces', ProvinceController::class);
+    Route::resource('halls', HallController::class);
+    Route::resource('stalls', StallController::class);
     Route::post('auth/logout', [AuthController::class, 'destroy']);
 });
