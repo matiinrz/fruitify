@@ -10,7 +10,10 @@ class EgressController extends Controller
 {
     public function index()
     {
-        return response()->json(Egress::query()->with('fruit')->orderByDesc('created_at')->paginate());
+        return response()->json(Egress::query()
+            ->with('fruit','hall','city','province','stall')
+            ->orderByDesc('created_at')
+            ->paginate());
     }
 
     public function store(EgressRequest $request)
@@ -23,9 +26,10 @@ class EgressController extends Controller
             $entry->plate = $request->input('plate');
             $entry->user_id = auth()->id();
             $entry->entry_date = $request->input('entry_date');
-            $entry->destination = $request->input('destination');
-            $entry->destination_type = $request->input('destination_type');
-            $entry->origin = $request->input('origin');
+            $entry->province_id = $request->input('province_id');
+            $entry->city_id = $request->input('city_id');
+            $entry->stall_id = $request->input('stall_id');
+            $entry->hall_id = $request->input('hall_id');
             $entry->weight = $fruit->weight;
             $entry->fruit_id = $fruit->fruit_id;
             if ($request->hasFile('image')) {

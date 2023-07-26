@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed fruit_id
  * @property mixed destination_type
  * @property mixed origin
+ * @property mixed city_id
+ * @property mixed province_id
+ * @property mixed stall_id
+ * @property mixed hall_id
  */
 class Egress extends Model
 {
@@ -42,5 +46,25 @@ class Egress extends Model
     public function fruit()
     {
         return $this->belongsTo(Fruit::class);
+    }
+
+    public function hall()
+    {
+        return $this->belongsTo(Hall::class);
+    }
+
+    public function stall()
+    {
+        return $this->belongsTo(Stall::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
     }
 }
