@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ssr : false ,
   app: {
     head: {
-      title: 'میدان میوه و تره بار',
+      title: 'سازمان ميادين ميوه و تره بار و ساماندهي مشاغل شهري شهرداري اصفهان',
       htmlAttrs: { dir: 'rtl', lang: 'fa' },
       meta: [{ name: 'description', content: '' }],
     },
@@ -114,39 +114,39 @@ export default defineNuxtConfig({
         name: "fruitify",
         icons: [
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "64x64",
-                type: "image/jpg",
+                type: "image/png",
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "120x120",
-                type: "image/jpg",
+                type: "image/png",
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "144x144",
-                type: "image/jpg",
+                type: "image/png",
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "152x152",
-                type: "image/jpg"
+                type: "image/png"
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "192x192",
-                type: "image/jpg"
+                type: "image/png"
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "384x384",
-                type: "image/jpg"
+                type: "image/png"
             },
             {
-                "src": "/images/icon.jpg",
+                "src": "/images/logo.png",
                 "sizes": "512x512",
-                type: "image/jpg"
+                type: "image/png"
             },
         ],
 

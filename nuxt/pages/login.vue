@@ -2,8 +2,12 @@
     <v-container class="d-flex justify-center">
         <v-card width="600" color="transparent" :loading="loading">
 
-            <v-card-title>
-                <v-img src="/images/fruit.png" />
+            <v-card-title class="d-flex justify-center">
+                <v-img src="/images/Login.png" height="300" width="300" />
+            </v-card-title>
+            <v-card-title class="text-center peyda">
+                سازمان ميادين ميوه و تره بار <br />و ساماندهي مشاغل شهري
+                <br /> شهرداري اصفهان
             </v-card-title>
             <v-card-text>
                 <v-text-field label="نام کاربری" class="mt-4" v-model="username" />
