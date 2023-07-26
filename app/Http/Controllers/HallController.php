@@ -40,6 +40,7 @@ class HallController extends Controller
         $hall = Hall::query()->findOrFail($id);
         $hall->name = $request->input('name');
         $hall->save();
+        return response()->json($hall);
     }
 
     public function destroy(string $id)

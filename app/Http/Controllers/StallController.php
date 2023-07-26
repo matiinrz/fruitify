@@ -39,6 +39,7 @@ class StallController extends Controller
         $stall = Stall::query()->findOrFail($id);
         $stall->name = $request->input('name');
         $stall->save();
+        return response()->json($stall);
     }
 
     public function destroy(string $id)
