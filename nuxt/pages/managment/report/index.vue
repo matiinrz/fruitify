@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card max-width="600">
-            <v-card-title class="peyda text-center">گزارش گیری</v-card-title>
+            <v-card-title >گزارش گیری</v-card-title>
             <v-divider />
             <v-card-subtitle class="mt-2">
                 <v-select label="نوع گزارش" v-model="reportType" :items="reportsItem" item-title="name"
@@ -9,33 +9,44 @@
             </v-card-subtitle>
             <v-divider />
             <v-card-text>
-                <v-card class="mt-1" color="white" v-for="(item, i) in reports.data" :key="reports">
-                    <v-card-subtitle class="pa-1 d-flex">
-                        پلاک : <div class="text-blue">{{ item.plate }}</div>
-                        <v-spacer />
-                        <div> {{ datetime(item.entry_date) }}</div>
-                    </v-card-subtitle>
-                    <v-divider />
-                    <v-card-text>
-                        <v-row>
-                            <v-col cols="3" v-if="item.image">
-                                <v-avatar>
+                <v-table>
+                    <thead>
+                        <tr>
+                            <th class="text-center text-primary">ردیف</th>
+                            <th class="text-center text-primary">پلاک</th>
+                            <th class="text-center text-primary">تاریخ</th>
+                            <th class="text-center text-primary">میوه</th>
+                            <th class="text-center text-primary">وزن</th>
+                            <th class="text-center text-primary">مبدا</th>
+                            <th class="text-center text-primary">مقصد</th>
+                            <th class="text-center text-primary">تصویر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, i) in reports.data" :key="reports">
+                            <td class="text-center text-primary">{{ i + 1 }}</td>
+                            <td class="text-center">{{ item.plate }}</td>
+                            <td class="text-center">{{ datetime(item.entry_date) }}</td>
+                            <td class="text-center">{{ item?.fruit.name }}</td>
+                            <td class="text-center">{{ item?.weight }}</td>
+                            <td class="text-center" v-if="reportType === 'entry'">{{ item?.province.name }} - {{
+                                item?.city.name }}</td>
+                            <td class="text-center" v-if="reportType === 'entry'">{{ item?.hall.name }} - {{
+                                item?.stall.name }}</td>
+                            <td class="text-center" v-if="reportType === 'egress'">{{ item?.hall.name }} - {{
+                                item?.stall.name }}</td>
+                            <td class="text-center" v-if="reportType === 'egress'">{{ item?.province.name }} - {{
+                                item?.city.name }}</td>
+                            <td class="text-center">
+                                <v-avatar v-if="item.image">
                                     <v-img :src="imageUrl(item.image)" @click="showImageDialog(imageUrl(item.image))" />
                                 </v-avatar>
-                            </v-col>
-                            <v-col>
-                                <v-chip size="small" class="ma-1">
-                                    {{ item?.fruit.name }} , {{ item?.weight }}
-                                    <!-- {{ item?.fruit?.name > }} , {{ item?.weight }} -->
-                                </v-chip>
-                            </v-col>
-                            <v-col>
-                                <div v-if="item.destination">مقصد : {{ item.destination }}</div>
+                                <span v-else>-</span>
+                            </td>
 
-                            </v-col>
-                        </v-row>
-                    </v-card-text>
-                </v-card>
+                        </tr>
+                    </tbody>
+                </v-table>
             </v-card-text>
             <v-card-actions class="justify-center">
                 <v-pagination v-model="page" :length="reports.last_page" @update:modelValue="changePage()"></v-pagination>

@@ -1,7 +1,7 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
         <v-card width="600" :loading="loading">
-            <v-card-title class="peyda text-center">
+            <v-card-title >
                 ویرایش محصولات
             </v-card-title>
             <v-divider />
@@ -60,11 +60,12 @@ const setFruits = async () => {
 
     const { data, error } = await api(`api/fruit/${fruitId}`, {
         method: 'PUT',
+        key: "fruit_put",
         body: formData
     });
     if (data.value) {
         toast.success(' با موفقیت ویرایش شد')
-        useRouter().push('/fruit')
+        useRouter().push('/managment/fruit')
     } else if (error?.value?.data?.errors) {
         errors.value = error?.value?.data?.errors
     }

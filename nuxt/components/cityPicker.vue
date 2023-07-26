@@ -6,7 +6,9 @@
             <v-card-title>
                 <v-text-field label="جستجو" v-model="filters.search" @keyup.enter="getCities" />
             </v-card-title>
-            <v-card-text>
+            <v-card-text class="d-flex justify-center">
+                <v-progress-circular v-if="loading" color="primary" indeterminate :size="45"
+                    :width="7"></v-progress-circular>
                 <v-list>
                     <v-list-item v-for="(item, i) in cities" :key="i" @click="setCity(item)">
                         {{ item.name }}
@@ -19,6 +21,7 @@
 <script setup>
 let emit = defineEmits(['update:modelValue']);
 const { modelValue, errors, provinceId } = defineProps(['modelValue', 'errors', 'provinceId'])
+const loading = ref(false)
 const cityDialog = ref(false)
 const cities = ref({})
 const cityName = ref("")
@@ -31,6 +34,7 @@ const filters = ref({
 filters.value.province_id = provinceId
 
 const getCities = async () => {
+    loading.value = true
     const { data, error } = await api('api/cities', {
         method: "GET",
         key: "get_cities",
@@ -39,6 +43,7 @@ const getCities = async () => {
     if (data?.value) {
         cities.value = data.value
     }
+    loading.value = false
 }
 
 if (modelValue == "") cityName.value = ""

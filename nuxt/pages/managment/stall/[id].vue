@@ -1,7 +1,7 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
         <v-card width="600" :loading="loading">
-            <v-card-title class="peyda text-center">
+            <v-card-title>
                 ویرایش غرفه
             </v-card-title>
             <v-divider />
