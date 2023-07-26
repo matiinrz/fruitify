@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\CityController;
-use App\Http\Controllers\Api\ProvinceController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
 use App\Http\Controllers\EntryController;
