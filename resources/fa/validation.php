@@ -114,6 +114,10 @@ return [
     */
 
     'attributes' => [
+        'hall_id' => 'تالار',
+        'stall_id' => 'غرفه',
+        'fruit_id' => 'نوع',
+        'weight' => 'وزن',
         'name' => 'نام',
         'username' => 'نام کاربری',
         'email' => 'پست الکترونیکی',
