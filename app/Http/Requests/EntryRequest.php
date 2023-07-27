@@ -15,7 +15,7 @@ class EntryRequest extends FormRequest
     {
         return [
             'plate' => ['required'],
-            'type' => ['present', 'array', 'min:1'],
+            'type' => ['required'],
             'type.*' => ['required'],
             'entry_date' => ['required'],
             'province_id' => ['required'],
