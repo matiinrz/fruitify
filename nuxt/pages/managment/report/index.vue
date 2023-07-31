@@ -8,6 +8,10 @@
                     item-value="value" />
             </v-card-subtitle>
             <v-divider />
+            <v-card-actions>
+                <v-btn class="mx-2" block  >خروجی اکسل</v-btn>
+
+            </v-card-actions>
             <v-card-text>
                 <v-table>
                     <thead>
