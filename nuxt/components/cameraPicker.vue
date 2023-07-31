@@ -1,10 +1,10 @@
 <template>
-    <v-file-input v-model="file" label="تصویر" accept="image/*" @change="capturePhoto" @click.clear="cleared()"
+    <v-file-input v-model="file" :label="label" accept="image/*" @change="capturePhoto" @click.clear="cleared()"
         :error-messages="errors || ''"></v-file-input>
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue, errors } = defineProps(['modelValue', 'errors'])
+const { modelValue, errors ,label} = defineProps(['modelValue', 'errors' , 'label'])
 
 const file = ref(null)
 const capturePhoto = () => {
