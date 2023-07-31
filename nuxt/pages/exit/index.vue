@@ -1,7 +1,7 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
         <v-card width="600">
-            <v-card-title class=" text-center" >
+            <v-card-title class=" text-center">
                 ثبت خروجی
             </v-card-title>
             <v-divider />
@@ -25,7 +25,7 @@
                         <province-picker v-model="object.province_id" :errors="errors?.province_id" />
                     </v-col>
                     <v-col cols="6">
-                        <city-picker v-model="object.city_id" :provinceId="object.city_id" />
+                        <city-picker v-model="object.city_id" :provinceId="object.province_id" />
                     </v-col>
                 </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
