@@ -6,7 +6,7 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
-                <!-- <camera-picker label="تصویر پلاک" /> -->
+                <camera-picker label="تصویر پلاک" v-model="object.plate_image" :errors="errors?.plate_image" />
                 <plate-picker v-model="object.plate" />
                 <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
@@ -51,12 +51,14 @@ const loading = ref(false)
 const object = ref({
     plate: "",
     image: "",
-    type: [],
+    type: null,
     entry_date: "",
     province_id: "",
     city_id: "",
     hall_id: "",
-    stall_id: ""
+    stall_id: "",
+    plate_image: ""
+
 })
 
 const setExit = async () => {
@@ -70,6 +72,10 @@ const setExit = async () => {
     formData.append('hall_id', object.value.hall_id);
     formData.append('stall_id', object.value.stall_id);
 
+    if (object.value.plate_image) {
+        formData.append('plate_image', object.value.plate_image);
+
+    }
     if (object.value.image) {
         formData.append("image", object.value.image)
     }
