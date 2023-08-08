@@ -16,8 +16,7 @@ class EntryRequest extends FormRequest
         return [
             'plate' => ['nullable'],
             'plate_image' => ['nullable','file'],
-            'type' => ['present', 'array', 'min:1'],
-            'type.*' => ['required'],
+            'type' => ['required'],
             'entry_date' => ['required'],
             'province_id' => ['required'],
             'city_id' => ['required'],
