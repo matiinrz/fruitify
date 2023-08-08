@@ -1,17 +1,21 @@
 <template>
-    <v-container class="d-flex justify-center">
-        <v-card width="600" color="transparent" :loading="loading">
+    <v-container class=" fill-height justify-center ">
+        <v-card color="white" elevation="0" class="rounded-lg shadow-card" width="600" :loading="loading">
+
 
             <v-card-title class="d-flex justify-center">
-                <v-img src="/images/Login.png" height="300" width="300" />
+                <!-- <v-img src="/images/Login.png" height="300" width="300" /> -->
+                <v-img width="600" src="/Comp-2.gif" />
+
             </v-card-title>
-            <v-card-title class=" text-center" >
+
+            <!-- <v-card-title class=" text-center">
                 سازمان ميادين ميوه و تره بار <br />و ساماندهي مشاغل شهري
                 <br /> شهرداري اصفهان
-            </v-card-title>
+            </v-card-title> -->
             <v-card-text>
-                <v-text-field label="نام کاربری" class="mt-4" v-model="username" />
-                <v-text-field label="رمز عبور" type="Password" v-model="password" />
+                <v-text-field variant="outlined" label="نام کاربری" class="mt-4" v-model="username" />
+                <v-text-field variant="outlined" label="رمز عبور" type="Password" v-model="password" />
             </v-card-text>
             <v-card-actions>
                 <v-btn block @click="login()" size="large">تایید</v-btn>
@@ -58,12 +62,20 @@ const login = async () => {
 
 </script>
 <style scoped>
-.bg-pic {
+.bg-color {
+    background-color: white !important;
+}
+
+.shadow-card {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset !important;
+}
+
+/* .bg-pic {
     background-image: url("/images/login.jpg");
     background-size: cover;
     background-repeat: repeat-y;
     width: 100%;
     height: 100vh;
     background-size: cover;
-}
+} */
 </style>

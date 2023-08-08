@@ -26,6 +26,7 @@ const filters = ref({
     search: "",
     page: 1,
 })
+const { $event } = useNuxtApp()
 const getProvinces = async () => {
     const { data, error } = await api('api/provinces', {
         method: "GET",
@@ -44,6 +45,7 @@ if (modelValue == "") provinceName.value = ""
 const setProvince = async (item) => {
     provinceName.value = item.name
     emit('update:modelValue', item.id)
+    $event('city-picker', item.id)
     provinceDialog.value = false
 }
 </script>

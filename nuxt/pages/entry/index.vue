@@ -6,6 +6,7 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
+                <!-- <camera-picker label="تصویر پلاک" /> -->
                 <plate-picker v-model="object.plate" />
                 <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
@@ -22,14 +23,14 @@
                 <v-card-subtitle class="my-2">مقصد</v-card-subtitle>
                 <v-row>
                     <v-col>
-                        <hall-picker v-model="object.hall_id " :errors="errors?.hall_id" />
+                        <hall-picker v-model="object.hall_id" :errors="errors?.hall_id" />
                     </v-col>
                     <v-col>
                         <stall-picker v-model="object.stall_id" :errors="errors?.stall_id" />
                     </v-col>
                 </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
-                <camera-picker v-model="object.image" :errors="errors?.image" />
+                <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر" />
             </v-card-text>
             <v-divider />
             <v-card-actions>

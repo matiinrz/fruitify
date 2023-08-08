@@ -1,13 +1,17 @@
 <template>
     <v-container>
         <v-card max-width="600">
-            <v-card-title class=" text-center" >گزارش گیری</v-card-title>
+            <v-card-title class=" text-center">گزارش گیری</v-card-title>
             <v-divider />
             <v-card-subtitle class="mt-2">
                 <v-select label="نوع گزارش" v-model="reportType" :items="reportsItem" item-title="name"
                     item-value="value" />
             </v-card-subtitle>
             <v-divider />
+            <!-- <v-card-actions>
+                <v-btn class="mx-2" block  >خروجی اکسل</v-btn>
+
+            </v-card-actions> -->
             <v-card-text>
                 <v-table>
                     <thead>
