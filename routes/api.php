@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
@@ -35,5 +36,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('provinces', ProvinceController::class);
     Route::resource('halls', HallController::class);
     Route::resource('stalls', StallController::class);
+    Route::any('exports', [ExportController::class, 'index'])->name('download');
     Route::post('auth/logout', [AuthController::class, 'destroy']);
 });

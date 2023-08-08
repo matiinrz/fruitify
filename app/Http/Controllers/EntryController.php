@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EntryController extends Controller
 {
-    public function index($request)
+    public function index(Request $request)
     {
         return response()->json(Entry::query()
             ->with('fruit', 'hall', 'city', 'province', 'stall')
@@ -56,6 +56,29 @@ class EntryController extends Controller
             }
             $entry->save();
         }
+        return response()->json(['message' => 'success']);
+    }
+
+    public function update(EntryRequest $request, $id)
+    {
+        /* @var Entry $entry */
+        $entry = Entry::query()->findOrFail($id);
+        $entry->plate = $request->input('plate');
+        if ($request->hasFile('plate_image')) {
+            $entry->image = $request->file('plate_image')->store('entry');
+        }
+        $entry->province_id = $request->input('province_id');
+        $entry->city_id = $request->input('city_id');
+        $entry->stall_id = $request->input('stall_id');
+        $entry->hall_id = $request->input('hall_id');
+        $entry->entry_date = $request->input('entry_date');
+        $entry->weight = $request->input('weight');
+        $entry->fruit_id = $request->input('fruit_id');
+        $entry->user_id = auth()->id();
+        if ($request->hasFile('image')) {
+            $entry->image = $request->file('image')->store('entry');
+        }
+        $entry->save();
         return response()->json(['message' => 'success']);
     }
 }
