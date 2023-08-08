@@ -8,6 +8,7 @@
                     item-value="value" />
 
                 <v-btn class="mr-2" color="blue" icon="mdi-filter" @click="filtersDialog = true" />
+                <v-btn class="mr-2" color="green" icon="mdi-download" @click="downloadeExel()" />
             </v-card-subtitle>
             <v-divider />
             <!-- <v-card-actions>
@@ -158,6 +159,22 @@ const changePage = () => {
 
 const showImageDialog = (image) => {
     $event('image-dialog', image)
+}
+
+const downloadeExel = async () => {
+    const { data, error } = await api('api/exports', {
+        method: "POST",
+        key: "get_export",
+        params: {
+            "export": "App\\Exports\\EntryExport",
+            arguments: { ...filters.value }
+        },
+
+
+    })
+    if (data?.value) {
+        reports.value = data.value
+    }
 }
 
 </script>
