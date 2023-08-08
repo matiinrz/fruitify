@@ -11,7 +11,7 @@ class EgressController extends Controller
     public function index(Request $request)
     {
         return response()->json(Egress::query()
-            ->with('fruit','hall','city','province','stall')
+            ->with('fruit', 'hall', 'city', 'province', 'stall')
             ->when($request->input('province_id'), function ($query, $param) {
                 $query->where('province_id', $param);
             })->when($request->input('city_id'), function ($query, $param) {
