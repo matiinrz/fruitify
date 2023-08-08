@@ -12,7 +12,8 @@ return new class extends Migration {
     {
         Schema::create('entry', function (Blueprint $table) {
             $table->id();
-            $table->string('plate');
+            $table->string('plate')->nullable();
+            $table->string('plate_image')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('fruit_id');
             $table->string('weight');

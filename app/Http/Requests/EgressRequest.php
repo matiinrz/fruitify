@@ -14,7 +14,8 @@ class EgressRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'plate' => ['required'],
+            'plate' => ['nullable'],
+            'plate_image' => ['nullable','file'],
             'type' => ['present', 'array', 'min:1'],
             'type.*' => ['required'],
             'entry_date' => ['required'],

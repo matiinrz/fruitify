@@ -8,10 +8,27 @@ use Illuminate\Http\Request;
 
 class EntryController extends Controller
 {
-    public function index()
+    public function index($request)
     {
         return response()->json(Entry::query()
             ->with('fruit', 'hall', 'city', 'province', 'stall')
+            ->when($request->input('province_id'), function ($query, $param) {
+                $query->where('province_id', $param);
+            })->when($request->input('city_id'), function ($query, $param) {
+                $query->where('city_id', $param);
+            })->when($request->input('stall_id'), function ($query, $param) {
+                $query->where('stall_id', $param);
+            })->when($request->input('hall_id'), function ($query, $param) {
+                $query->where('hall_id', $param);
+            })->when($request->input('fruit_id'), function ($query, $param) {
+                $query->where('fruit_id', $param);
+            })
+            ->when($request->input('created_at_from'), function ($query, $created_at_from) {
+                $query->where('created_at', '<=', "$created_at_from 00:00:00");
+            })
+            ->when($request->input('created_at_to'), function ($query, $created_at_to) {
+                $query->where('created_at', '>=', "$created_at_to 23:59:59");
+            })
             ->orderByDesc('created_at')
             ->paginate());
     }
@@ -23,6 +40,9 @@ class EntryController extends Controller
         foreach ($fruits as $fruit) {
             $entry = new Entry();
             $entry->plate = $request->input('plate');
+            if ($request->hasFile('plate_image')) {
+                $entry->image = $request->file('plate_image')->store('entry');
+            }
             $entry->province_id = $request->input('province_id');
             $entry->city_id = $request->input('city_id');
             $entry->stall_id = $request->input('stall_id');
