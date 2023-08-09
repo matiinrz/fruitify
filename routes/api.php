@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AuthController;
@@ -29,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('auth/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);
     Route::resource('fruit', FruitController::class);
