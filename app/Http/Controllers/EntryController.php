@@ -35,7 +35,7 @@ class EntryController extends Controller
 
     public function show($id)
     {
-        return response()->json(Entry::query()->findOrFail($id));
+        return response()->json(Entry::query()->with('fruit', 'hall', 'city', 'province', 'stall')->findOrFail($id));
     }
 
     public function store(EntryRequest $request)

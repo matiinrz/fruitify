@@ -35,7 +35,7 @@ class EgressController extends Controller
 
     public function show($id)
     {
-        return response()->json(Egress::query()->findOrFail($id));
+        return response()->json(Egress::query()->with('fruit', 'hall', 'city', 'province', 'stall')->findOrFail($id));
     }
 
     public function store(EgressRequest $request)
