@@ -22,7 +22,7 @@
 let emit = defineEmits(['update:modelValue']);
 const { $listen } = useNuxtApp()
 
-const { modelValue, errors, provinceId } = defineProps(['modelValue', 'errors', 'provinceId'])
+const { modelValue, errors, provinceId, city } = defineProps(['modelValue', 'errors', 'provinceId', 'city'])
 const loading = ref(false)
 const cityDialog = ref(false)
 const cities = ref({})
@@ -32,12 +32,6 @@ const filters = ref({
     page: 1,
     province_id: 0
 })
-
-const changeCityPicker = (x) => {
-    console.log('x :', x);
-    filters.value.province_id = x
-    getCities()
-}
 
 const getCities = async () => {
     loading.value = true
@@ -52,7 +46,6 @@ const getCities = async () => {
     loading.value = false
 }
 
-if (modelValue == "") cityName.value = ""
 
 const setCity = async (item) => {
     cityName.value = item.name
@@ -60,7 +53,22 @@ const setCity = async (item) => {
     cityDialog.value = false
 }
 
+const changeCityPicker = (x) => {
+    setCity({ name: "", id: null })
+    console.log('x', x, filters.value.province_id);
+    if (x !== filters.value.province_id) {
+        filters.value.province_id = x
+        getCities()
+    }
+}
+
+
 $listen('city-picker', changeCityPicker)
+
+if (city) {
+    setCity(city)
+}
+
 
 </script>
     

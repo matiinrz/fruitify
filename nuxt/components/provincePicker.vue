@@ -1,6 +1,6 @@
 <template>
-    <v-text-field v-model="provinceName" label="انتخاب استان" @click="provinceDialog = true" :error-messages="errors || ''"
-        ></v-text-field>
+    <v-text-field v-model="provinceName" label="انتخاب استان" @click="provinceDialog = true"
+        :error-messages="errors || ''"></v-text-field>
     <v-dialog v-model="provinceDialog">
         <v-card color="white">
             <v-card-title>
@@ -18,7 +18,7 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue, errors } = defineProps(['modelValue', 'errors'])
+const { modelValue, errors, province } = defineProps(['modelValue', 'errors', 'province'])
 const provinceDialog = ref(false)
 const provinces = ref({})
 const provinceName = ref("")
@@ -26,6 +26,7 @@ const filters = ref({
     search: "",
     page: 1,
 })
+
 const { $event } = useNuxtApp()
 const getProvinces = async () => {
     const { data, error } = await api('api/provinces', {
@@ -40,13 +41,18 @@ const getProvinces = async () => {
 
 getProvinces()
 
-if (modelValue == "") provinceName.value = ""
+
 
 const setProvince = async (item) => {
     provinceName.value = item.name
     emit('update:modelValue', item.id)
     $event('city-picker', item.id)
     provinceDialog.value = false
+}
+
+if (province) {
+    console.log('province', province);
+    setProvince(province)
 }
 </script>
     

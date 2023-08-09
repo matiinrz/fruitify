@@ -27,6 +27,7 @@
                             <th class="text-center text-primary">مبدا</th>
                             <th class="text-center text-primary">مقصد</th>
                             <th class="text-center text-primary">تصویر</th>
+                            <th class="text-center text-primary">عملیات</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,10 @@
                                     <v-img :src="imageUrl(item.image)" @click="showImageDialog(imageUrl(item.image))" />
                                 </v-avatar>
                                 <span v-else>-</span>
+                            </td>
+                            <td>
+                                <v-btn icon="mdi-pencil" size="x-small"
+                                    :to="`/managment/report/${item.id}/?type=${reportType}`" />
                             </td>
 
                         </tr>
@@ -103,6 +108,8 @@
 definePageMeta({
     middleware: "auth",
 });
+const config = useRuntimeConfig();
+const baseUrl = config.public.BASE_URL;
 const { $event } = useNuxtApp()
 const reports = ref([])
 const filtersDialog = ref(false)
@@ -166,14 +173,14 @@ const downloadeExel = async () => {
         method: "POST",
         key: "get_export",
         params: {
-            "export": "App\\Exports\\EntryExport",
+            "export": `App\\Exports\\${(reportType.value === 'entry') ? 'Entry' : 'Egress'}Export`,
             arguments: { ...filters.value }
         },
 
 
     })
     if (data?.value) {
-        reports.value = data.value
+        window.open(`${baseUrl}/storage/${data.value.path}`, '_blank', 'noreferrer')
     }
 }
 

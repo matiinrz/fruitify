@@ -82,6 +82,12 @@ const focus4 = ref()
 
 const { modelValue, errors } = defineProps(['modelValue', 'errors'])
 
+if (modelValue) {
+    value4.value = modelValue.substring(0, 2)
+    value3.value = modelValue.substring(2, 3)
+    value2.value = modelValue.substring(3, 6)
+    value1.value = modelValue.substring(6, 9)
+}
 
 watch(value1, (newvalue) => {
     object.value = value4.value + value3.value + value2.value + newvalue
