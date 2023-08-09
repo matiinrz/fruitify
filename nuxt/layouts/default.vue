@@ -3,9 +3,9 @@
         <v-locale-provider rtl>
             <VitePwaManifest />
             <v-main>
-                <app-bar v-if="route.path !== '/login' && route.path !== '/register'" />
+                <app-bar v-if="route.path !== '/login'" />
                 <slot />
-                <nav-btn />
+                <nav-btn v-if="route.path !== '/login'" />
             </v-main>
         </v-locale-provider>
         <v-dialog v-model="imageDialog">
