@@ -39,4 +39,21 @@ class EgressExport implements FromCollection
             })
             ->orderByDesc('created_at')->get();
     }
+
+    public function headings(): array
+    {
+        return [
+            'plate',
+            'plate_image',
+            'fruit_id',
+            'weight',
+            'entry_date',
+            'user_id',
+            'province_id',
+            'city_id',
+            'stall_id',
+            'hall_id',
+            'created_at',
+        ];
+    }
 }
