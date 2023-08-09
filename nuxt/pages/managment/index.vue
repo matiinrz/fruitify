@@ -6,7 +6,8 @@
             </v-card-title>
             <v-card-text>
                 <div class="card-size mt-12">
-                    <v-btn block size="large" to="/managment/report">مشاهده گزارش</v-btn>
+                    <v-btn block size="large" to="/managment/dashboard">داشبورد</v-btn>
+                    <v-btn block class="mt-2" size="large" to="/managment/report">مشاهده گزارش</v-btn>
                     <v-btn block class="mt-2" size="large" to="/managment/fruit">افزودن محصولات</v-btn>
                     <v-btn block class="mt-2" size="large" to="/managment/hall">افزودن تالار</v-btn>
                     <v-btn block class="mt-2" size="large" to="/managment/stall">افزودن غرفه</v-btn>
