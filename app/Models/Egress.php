@@ -27,7 +27,7 @@ class Egress extends Model
 {
     use HasFactory;
 
-    protected $table = 'exit';
+    protected $table = 'egress';
 
     protected $fillable = [
         'plate',

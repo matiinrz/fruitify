@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('exit', function (Blueprint $table) {
+        Schema::create('egress', function (Blueprint $table) {
             $table->id();
             $table->string('plate')->nullable();
             $table->string('plate_image')->nullable();
@@ -32,5 +32,6 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('exit');
+        Schema::dropIfExists('egress');
     }
 };

@@ -17,15 +17,16 @@ class DashboardController extends Controller
              from entry group by fruit_id ORDER BY SUM(weight) DESC
              limit 10) A'), 'fruit.id', '=', 'A.fruit_id')
             ->get();
+
         $egress_weight = DB::table('fruit')
             ->select('fruit.name', 'A.weight')
             ->join(DB::raw('(select fruit_id, SUM(weight) as weight
-             from exit group by fruit_id ORDER BY SUM(weight) DESC
-             limit 10) A'), 'fruit.id', '=', 'A.fruit_id')
+             from egress group by fruit_id ORDER BY SUM(weight)
+             DESC limit 10) A'), 'fruit.id', '=', 'A.fruit_id')
             ->get();
         return response()->json([
             'entry' => $entry_weight,
-            'egress' => $entry_weight,
+            'egress' => $egress_weight,
         ]);
     }
 }
