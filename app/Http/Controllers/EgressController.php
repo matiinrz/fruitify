@@ -33,6 +33,11 @@ class EgressController extends Controller
             ->paginate());
     }
 
+    public function show($id)
+    {
+        return response()->json(Egress::query()->findOrFail($id));
+    }
+
     public function store(EgressRequest $request)
     {
 
@@ -60,6 +65,7 @@ class EgressController extends Controller
         }
         return response()->json(['message' => 'success']);
     }
+
     public function update(EgressRequest $request, $id)
     {
         /* @var Egress $entry */

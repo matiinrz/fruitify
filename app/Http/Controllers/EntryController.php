@@ -33,6 +33,11 @@ class EntryController extends Controller
             ->paginate());
     }
 
+    public function show($id)
+    {
+        return response()->json(Entry::query()->findOrFail($id));
+    }
+
     public function store(EntryRequest $request)
     {
 
