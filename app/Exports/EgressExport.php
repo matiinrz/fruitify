@@ -6,8 +6,10 @@ use App\Models\Entry;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class EgressExport implements FromCollection
+class EgressExport implements FromCollection, ShouldAutoSize,WithHeadings
 {
     public Collection $array;
 
