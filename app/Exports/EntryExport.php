@@ -37,6 +37,6 @@ class EntryExport implements FromCollection
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
-            ->orderByDesc('created_at');
+            ->orderByDesc('created_at')->get();
     }
 }
