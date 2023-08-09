@@ -52,8 +52,8 @@
                                 <span v-else>-</span>
                             </td>
                             <td>
-                                <v-btn icon="mdi-pencil" size="x-small"
-                                    :to="`/managment/report/${item.id}/?type=${reportType}`" />
+                                <v-btn icon="mdi-pencil" size="x-small" class="text-white"
+                                    :to="`/admin/report/${item.id}/?type=${reportType}`" />
                             </td>
 
                         </tr>
@@ -63,10 +63,6 @@
             <v-card-actions class="justify-center">
                 <v-pagination v-model="filters.page" :length="reports.last_page"
                     @update:modelValue="changePage()"></v-pagination>
-            </v-card-actions>
-            <v-card-actions>
-
-                <v-btn variant="outlined" block to="/managment" color="#6E5131">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
         <v-dialog v-model="filtersDialog" width="600">
@@ -98,7 +94,7 @@
                     </v-row>
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn block @click="changePage()">تایید</v-btn>
+                    <v-btn block @click="changePage()" class="text-white">تایید</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -106,11 +102,13 @@
 </template>
 <script setup>
 definePageMeta({
-    middleware: "auth",
+    layout: "admin",
+    middleware: "auth"
 });
+const { $event } = useNuxtApp()
+$event('tilte-chaneg', 'لیست ورودی و خروجی')
 const config = useRuntimeConfig();
 const baseUrl = config.public.BASE_URL;
-const { $event } = useNuxtApp()
 const reports = ref([])
 const filtersDialog = ref(false)
 const filters = ref({

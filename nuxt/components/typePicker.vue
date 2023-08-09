@@ -1,21 +1,21 @@
 <template>
     <v-row>
-        <v-col cols="6" >
+        <v-col cols="6">
             <!-- <v-text-field label="نوع محصول" v-model="proType.type" :error-messages="errors" /> -->
             <!-- <fruit-picker v-model="proType.fruit_id" /> -->
-            <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true" :error-messages="errors || ''"></v-text-field>
+            <v-text-field v-model="fruitName" label="انتخاب محصول" @click="fruitDialog = true"
+                :error-messages="errors || ''"></v-text-field>
         </v-col>
-        <v-col cols=" 4" >
+        <v-col cols=" 4">
             <v-text-field label=" وزن(کیلوگرم)" type="number" v-model="proType.weight" :error-messages="errors || ''" />
         </v-col>
-        
+
     </v-row>
     <v-col class="px-0">
-            <v-btn  height="50" block  @click="setType()"
-                :disabled="!proType.fruit_id || !proType.weight">
-                <v-icon>mdi-check</v-icon>
-            </v-btn>
-        </v-col>
+        <v-btn class="text-white" block @click="setType()" :disabled="!proType.fruit_id || !proType.weight">
+            <v-icon>mdi-check</v-icon>
+        </v-btn>
+    </v-col>
     <v-card class="mb-2" v-if="type.length > 0">
         <v-card-text>
             <v-chip closable @click.clear="cleared(item.fruit_id)" v-for="(item, i) in showType" :key="i">{{

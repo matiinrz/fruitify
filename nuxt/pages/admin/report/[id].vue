@@ -74,18 +74,21 @@
             </v-card-text>
             <v-divider />
             <v-card-actions>
-                <v-btn block @click="updateReport()">تایید</v-btn>
+                <v-btn block @click="updateReport()" class="text-white">تایید</v-btn>
             </v-card-actions>
             <v-card-actions>
-                <v-btn block to="/managment/report" variant="outlined" color="#6E5131">بازگشت</v-btn>
+                <v-btn block to="/admin/report" variant="outlined">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
 </template>
 <script setup>
 definePageMeta({
-    middleware: "auth",
+    layout: "admin",
+    middleware: "auth"
 });
+const { $event } = useNuxtApp()
+$event('tilte-chaneg', 'ویرایش لیست')
 import { toast } from 'vue3-toastify';
 
 const errors = ref([])

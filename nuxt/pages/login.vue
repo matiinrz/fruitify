@@ -1,27 +1,23 @@
 <template>
-    <v-container class=" fill-height justify-center ">
-        <v-card color="white" elevation="0" class="rounded-lg shadow-card" width="600" :loading="loading">
+    <v-container class=" fill-height justify-center">
+        <v-row>
+            <v-col cols="12">
+                <v-img src="/Comp-2.gif" />
+            </v-col>
+            <v-col cols="12">
+                <v-card color="light" elevation="2" class="rounded-lg" :loading="loading">
+                    <v-card-text>
+                        <v-text-field variant="solo-inverted" label="نام کاربری" class="mt-4" v-model="username" />
+                        <v-text-field variant="solo-inverted" label="رمز عبور" type="Password" v-model="password" />
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-btn block @click="login()" class="text-white" size="large">تایید</v-btn>
+                    </v-card-actions>
 
+                </v-card>
+            </v-col>
+        </v-row>
 
-            <v-card-title class="d-flex justify-center">
-                <!-- <v-img src="/images/Login.png" height="300" width="300" /> -->
-                <v-img width="600" src="/Comp-2.gif" />
-
-            </v-card-title>
-
-            <!-- <v-card-title class=" text-center">
-                سازمان ميادين ميوه و تره بار <br />و ساماندهي مشاغل شهري
-                <br /> شهرداري اصفهان
-            </v-card-title> -->
-            <v-card-text>
-                <v-text-field variant="outlined" label="نام کاربری" class="mt-4" v-model="username" />
-                <v-text-field variant="outlined" label="رمز عبور" type="Password" v-model="password" />
-            </v-card-text>
-            <v-card-actions>
-                <v-btn block @click="login()" size="large">تایید</v-btn>
-            </v-card-actions>
-
-        </v-card>
     </v-container>
 </template>
 <script setup>

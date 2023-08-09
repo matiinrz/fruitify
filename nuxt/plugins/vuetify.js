@@ -11,8 +11,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       light: {
         dark: false,
         colors: {
-          primary:  colors.green.darken4,
-          light: colors.green.lighten4,
+          primary:  '#73C273',
+          light: '#E7FFE8',
           grey: '#6C7B8E',
           dark: '#0C1222',
         },
@@ -41,12 +41,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       color: 'secondary',
     },
     VBtn: {
-      color: '#F1EDA6',
+      color: '#73C273',
       rounded: 'md',
       textColor: 'white',
-      VIcon: {
-        color: 'white',
-      },
+ 
     },
     VCardActions: {
       VBtn: {
@@ -102,8 +100,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       color: 'dark',
     },
     VAppBar: {
-      elevention: 0,
-      color: 'dark',
+      elevention: 1,
+      color: 'white',
       density: 'compact',
     },
     VBottomNavigation: {

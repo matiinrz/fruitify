@@ -56,6 +56,11 @@
   background: linear-gradient(90deg, rgba(220,228,189,1) 0%, rgba(208,223,200,1) 100%);
 }
 
+.bg-pattern {
+  background-image: url("/images/bg-pattern.jpg") !important;
+  background-repeat: repeat-y;
+}
+
 h1 {
   font-family: Peyda !important;
   font-size: 16px !important;

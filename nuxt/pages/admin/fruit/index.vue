@@ -6,7 +6,7 @@
             </v-card-title>
             <v-divider />
             <v-card-actions>
-                <v-btn block to="/managment/fruit/create">افزودن</v-btn>
+                <v-btn block class="text-white" to="/admin/fruit/create">افزودن</v-btn>
             </v-card-actions>
             <v-divider />
             <v-card-subtitle class="my-2">
@@ -23,7 +23,8 @@
                         {{ item.name }}
                         <v-spacer />
                         <v-btn icon="mdi-delete" size="x-small" color="red" @click="deleteFruit(item.id)"></v-btn>
-                        <v-btn icon="mdi-pencil" size="x-small" color="blue" :to="`/fruit/${item.id}`" class="mr-1"></v-btn>
+                        <v-btn icon="mdi-pencil" size="x-small" color="blue" :to="`/admin/fruit/${item.id}`"
+                            class="mr-1"></v-btn>
                     </v-card-text>
                 </v-card>
             </v-card-text>
@@ -32,17 +33,17 @@
                 <v-pagination v-model="filters.page" :length="fruit.last_page"
                     @update:modelValue="getFruit()"></v-pagination>
             </v-card-actions>
-            <v-card-actions>
-                <v-btn block to="/managment" variant="outlined" color="#6E5131">بازگشت</v-btn>
-            </v-card-actions>
+
         </v-card>
     </v-container>
 </template>
 <script setup>
 definePageMeta({
-    middleware: "auth",
+    layout: "admin",
+    middleware: "auth"
 });
 const { $event } = useNuxtApp()
+$event('tilte-chaneg', 'مدیریت محصولات')
 import { toast } from 'vue3-toastify';
 
 const fruit = ref([])

@@ -33,10 +33,10 @@
             </v-card-text>
             <v-divider />
             <v-card-actions>
-                <v-btn block @click="setExit()">تایید</v-btn>
+                <v-btn block @click="setExit()" class="text-white">تایید</v-btn>
             </v-card-actions>
             <v-card-actions>
-                <v-btn block to="/" variant="outlined" color="#6E5131">بازگشت</v-btn>
+                <v-btn block to="/" variant="outlined">بازگشت</v-btn>
             </v-card-actions>
         </v-card>
     </v-container>
@@ -46,6 +46,8 @@ definePageMeta({
     middleware: "auth",
 });
 import { toast } from 'vue3-toastify';
+const { $event } = useNuxtApp()
+$event('tilte-chaneg', 'ثبت خروجی')
 const errors = ref([])
 const loading = ref(false)
 const object = ref({
