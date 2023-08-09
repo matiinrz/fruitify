@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EgressRequest;
+use App\Http\Requests\UpdateEgressRequest;
 use App\Models\Egress;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,7 @@ class EgressController extends Controller
             $entry = new Egress();
             $entry->plate = $request->input('plate');
             if ($request->hasFile('plate_image')) {
-                $entry->image = $request->file('plate_image')->store('entry');
+                $entry->plate_image = $request->file('plate_image')->store('entry');
             }
             $entry->user_id = auth()->id();
             $entry->entry_date = $request->input('entry_date');
@@ -66,7 +67,7 @@ class EgressController extends Controller
         return response()->json(['message' => 'success']);
     }
 
-    public function update(EgressRequest $request, $id)
+    public function update(UpdateEgressRequest $request, $id)
     {
         /* @var Egress $entry */
         $entry = Egress::query()->findOrFail($id);

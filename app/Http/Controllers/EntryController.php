@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EntryRequest;
+use App\Http\Requests\UpdateEntryRequest;
 use App\Models\Entry;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class EntryController extends Controller
             $entry = new Entry();
             $entry->plate = $request->input('plate');
             if ($request->hasFile('plate_image')) {
-                $entry->image = $request->file('plate_image')->store('entry');
+                $entry->plate_image = $request->file('plate_image')->store('entry');
             }
             $entry->province_id = $request->input('province_id');
             $entry->city_id = $request->input('city_id');
@@ -64,13 +65,13 @@ class EntryController extends Controller
         return response()->json(['message' => 'success']);
     }
 
-    public function update(EntryRequest $request, $id)
+    public function update(UpdateEntryRequest $request, $id)
     {
         /* @var Entry $entry */
         $entry = Entry::query()->findOrFail($id);
         $entry->plate = $request->input('plate');
         if ($request->hasFile('plate_image')) {
-            $entry->image = $request->file('plate_image')->store('entry');
+            $entry->plate_image = $request->file('plate_image')->store('entry');
         }
         $entry->province_id = $request->input('province_id');
         $entry->city_id = $request->input('city_id');
