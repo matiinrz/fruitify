@@ -178,7 +178,7 @@ const downloadeExel = async () => {
 
     })
     if (data?.value) {
-        window.open(`https://serv.snapplr.top/storage/${data.value.path}`, '_blank', 'noreferrer')
+        window.open(`http://serv.snapplr.top/storage/${data.value.path}`, '_blank', 'noreferrer')
     }
 }
 
