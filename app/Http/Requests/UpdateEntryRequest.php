@@ -18,13 +18,13 @@ class UpdateEntryRequest extends FormRequest
     {
         return [
             'plate' => ['nullable'],
-            'plate_image' => ['nullable', 'file'],
+            'plate_image' => ['nullable'],
             'entry_date' => ['required'],
             'province_id' => ['required'],
             'city_id' => ['required'],
             'hall_id' => ['required'],
             'stall_id' => ['required'],
-            'image' => ['nullable', 'file']
+            'image' => ['nullable']
         ];
     }
 }

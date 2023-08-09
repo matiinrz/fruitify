@@ -18,13 +18,11 @@ class UpdateEgressRequest extends FormRequest
     {
         return [
             'plate' => ['nullable'],
-            'plate_image' => ['nullable','file'],
             'entry_date' => ['required'],
             'province_id' => ['required'],
             'city_id' => ['required'],
             'hall_id' => ['required'],
             'stall_id' => ['required'],
-            'image' => ['nullable', 'file']
         ];
     }
 }
