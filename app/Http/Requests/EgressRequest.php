@@ -22,7 +22,6 @@ class EgressRequest extends FormRequest
             'city_id' => ['required'],
             'hall_id' => ['required'],
             'stall_id' => ['required'],
-            'image' => ['nullable', 'file']
         ];
     }
 }
