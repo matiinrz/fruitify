@@ -1,6 +1,6 @@
 <template>
-    <v-text-field v-model="hallName" label="انتخاب تالار" @click="hallDialog = true" :error-messages="errors || ''" 
-    ></v-text-field>
+    <v-text-field v-model="hallName" label="انتخاب تالار" @click="hallDialog = true"
+        :error-messages="errors || ''"></v-text-field>
     <v-dialog v-model="hallDialog">
         <v-card color="white">
             <v-card-title>
@@ -22,7 +22,7 @@
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);
-const { modelValue } = defineProps(['modelValue', 'errors' ])
+const { modelValue, hall } = defineProps(['modelValue', 'errors', 'hall'])
 const hallDialog = ref(false)
 const halls = ref({})
 const hallName = ref("")
@@ -43,12 +43,15 @@ const getHalls = async () => {
 
 getHalls()
 
-if (modelValue == "") hallName.value = ""
 
 const setHall = async (item) => {
     hallName.value = item.name
     emit('update:modelValue', item.id)
     hallDialog.value = false
+}
+
+if (hall) {
+    setHall(hall)
 }
 </script>
     

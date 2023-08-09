@@ -81,7 +81,11 @@ function jalalian(input: any) {
         return input;
     }
 }
+const { $event } = useNuxtApp()
 
+export function showImageDialog(image) {
+    $event('image-dialog', image)
+}
 
 export function getTime(input: string) {
     try {

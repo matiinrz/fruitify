@@ -23,10 +23,8 @@ const { modelValue, label, errors, min, max, type, readonly } = defineProps(['re
 
 const pickerType = ref(type)
 
-if (modelValue !== null) {
+if (modelValue) {
     object.value = modelValue
-} else {
-    object.value = ""
 }
 
 watch(object, (newItem) => {
