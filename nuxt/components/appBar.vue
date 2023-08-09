@@ -11,7 +11,7 @@
     </v-app-bar>
 
     <v-dialog v-model="logoutDialog" persistent max-width="300">
-      <v-card>
+      <v-card color="white">
         <v-card-title>آیا از خروج اطمینان دارید ؟</v-card-title>
         <v-card-text>
           در صورت اطمینان تایید و در غیر این صورت انصراف را انتخاب کنید .
@@ -21,7 +21,7 @@
           <v-btn variant="outlined" @click="logoutDialog = false">
             انصراف
           </v-btn>
-          <v-btn @click="logout()">
+          <v-btn @click="logout()" class="text-white">
             تایید
           </v-btn>
         </v-card-actions>
@@ -46,7 +46,7 @@ const changeTitle = (title) => {
 
 const logout = async () => {
   await auth.logout();
-  router.replace({ path: "/" });
+  router.replace({ path: "/login" });
 }
 
 $listen('tilte-chaneg', changeTitle)
