@@ -15,6 +15,7 @@ class EntryRequest extends FormRequest
     {
         return [
             'plate' => ['nullable'],
+            'plate_image' => ['nullable','file'],
             'type' => ['required'],
             'type.*' => ['required'],
             'entry_date' => ['required'],
@@ -22,6 +23,7 @@ class EntryRequest extends FormRequest
             'city_id' => ['required'],
             'hall_id' => ['required'],
             'stall_id' => ['required'],
+            'image' => ['nullable', 'file']
         ];
     }
 
