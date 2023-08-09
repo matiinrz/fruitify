@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('auth/login', [AuthController::class, 'login']);
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);
