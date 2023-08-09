@@ -45,6 +45,7 @@ class EntryExport implements FromCollection, ShouldAutoSize,WithHeadings
     public function headings(): array
     {
         return [
+            'id',
             'plate',
             'plate_image',
             'fruit_id',
