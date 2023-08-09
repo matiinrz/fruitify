@@ -23,6 +23,14 @@ export const api = (path: string, opts?: UseFetchOptions<any>) => {
         },
         onResponseError(context) {
             if (!toast) return;
+            if (context.response.status == 401) {
+                useRouter().push('/login')
+            }
+
+            if (context.response.status == 403) {
+                useRouter().push('/')
+            }
+
             const responseData = context.response._data;
 
             if (typeof responseData === 'string') {

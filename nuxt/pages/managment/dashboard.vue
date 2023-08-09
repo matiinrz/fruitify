@@ -138,7 +138,6 @@ const getEntry = (data) => {
     optionDonutEntry.value.labels = labels;
 
     nextTick(() => {
-        console.log('safdasdfadsfasdfasdf');
         let donut = new ApexCharts(
             document.querySelector("#donutEntrey"),
             optionDonutEntry.value
