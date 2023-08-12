@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class EntryExport implements FromCollection, ShouldAutoSize,WithHeadings
+class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
 {
     public Collection $array;
 
@@ -21,7 +21,14 @@ class EntryExport implements FromCollection, ShouldAutoSize,WithHeadings
     public function collection(): Collection
     {
         return Entry::query()
-            ->with('fruit', 'hall', 'city', 'province', 'stall')
+            ->select('entry.id', 'plate', 'fruit_id', 'fruit.name', 'weight',
+                'entry_date', 'entry.province_id', 'provinces.name', 'entry.city_id', 'cities.name', 'entry.stall_id',
+                'stalls.name', 'entry.hall_id', 'halls.name', 'entry.created_at')
+            ->join('fruit', 'entry.fruit_id', '=', 'fruit.id')
+            ->join('provinces', 'entry.province_id', '=', 'provinces.id')
+            ->join('cities', 'entry.city_id', '=', 'cities.id')
+            ->join('halls', 'entry.hall_id', '=', 'halls.id')
+            ->join('stalls', 'entry.stall_id', '=', 'stalls.id')
             ->when($this->array->get('province_id'), function ($query, $param) {
                 $query->where('province_id', $param);
             })->when($this->array->get('city_id'), function ($query, $param) {
