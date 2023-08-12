@@ -34,7 +34,7 @@
             </v-col>
         </v-row>
         <v-card-actions>
-            <v-btn block class="mt-2" size="large" to="/managment" variant="outlined" color="#6E5131">بازگشت</v-btn>
+            <v-btn block class="mt-2" size="large" to="/admin" variant="outlined" color="#6E5131">بازگشت</v-btn>
         </v-card-actions>
     </v-container>
 </template>
