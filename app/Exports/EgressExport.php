@@ -19,7 +19,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
 
     public function collection(): Collection
     {
-        return Egress::query()
+        $egressCollection = Egress::query()
             ->select('egress.id', 'egress.plate', 'fruit.name', 'egress.weight', 'egress.entry_date',
                 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
                 'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
@@ -51,6 +51,9 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ])->makeHidden(
                 ['egress.fruit_id', 'egress.province_id', 'egress.city_id',
                     'egress.stall_id', 'egress.hall_id', 'egress.created_at']);
+
+        return $egressCollection->diff(['egress.fruit_id', 'egress.province_id', 'egress.city_id',
+            'egress.stall_id', 'egress.hall_id', 'egress.created_at']);
     }
 
     public function headings(): array
