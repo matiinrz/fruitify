@@ -55,6 +55,7 @@ const setFruits = async () => {
     const formData = new FormData();
 
     formData.append('name', object.value.name);
+    formData.append('_method', "PUT");
 
     if (object.value.image) {
         formData.append("image", object.value.image)
@@ -62,13 +63,13 @@ const setFruits = async () => {
 
 
     const { data, error } = await api(`api/fruit/${fruitId}`, {
-        method: 'PUT',
+        method: 'POST',
         key: "fruit_put",
         body: formData
     });
     if (data.value) {
         toast.success(' با موفقیت ویرایش شد')
-        useRouter().push('/managment/fruit')
+        useRouter().push('/admin/fruit')
     } else if (error?.value?.data?.errors) {
         errors.value = error?.value?.data?.errors
     }

@@ -168,7 +168,7 @@ const updateReport = async () => {
     });
     if (data.value) {
         toast.success(' با موفقیت ویرایش شد')
-        useRouter().push('/managment/report')
+        useRouter().push('/admin/report')
     } else if (error?.value?.data?.errors) {
         errors.value = error?.value?.data?.errors
     }
