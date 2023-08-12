@@ -20,9 +20,9 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function collection(): Collection
     {
         return Egress::query()
-            ->select('egress.id', 'egress.plate', 'egress.fruit_id', 'fruit.name', 'egress.weight',
-                'egress.entry_date', 'egress.province_id', 'provinces.name', 'egress.city_id', 'cities.name',
-                'egress.stall_id', 'stalls.name', 'egress.hall_id', 'halls.name', 'egress.created_at')
+            ->select('egress.id', 'egress.plate', 'fruit.name', 'egress.weight', 'egress.entry_date',
+                'egress.fruit_id', 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
+                'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
             ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'egress.province_id', '=', 'provinces.id')
             ->join('cities', 'egress.city_id', '=', 'cities.id')
@@ -45,12 +45,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
-            ->orderByDesc('created_at')->get()->prepend([
-                'egress id',
-                'egress plate',
-                'fruit name',
-                'egress weight',
-            ]);
+            ->orderByDesc('created_at')->get();
     }
 
     public function headings(): array
@@ -58,15 +53,13 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
         return [
             'شناسه',
             'پلاک',
-            'fruit_id',
-            'weight',
-            'entry_date',
-            'user_id',
-            'province_id',
-            'city_id',
-            'stall_id',
-            'hall_id',
-            'created_at',
+            'میوه',
+            'وزن',
+            'تاریخ ثبت',
+            'استان',
+            'شهر',
+            'غرفه',
+            'تالار',
         ];
     }
 }
