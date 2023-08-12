@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\Egress;
 use App\Models\Entry;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +21,8 @@ class EgressExport implements FromCollection, ShouldAutoSize,WithHeadings
 
     public function collection(): Collection
     {
-        return Entry::query()
+        return Egress::query()
+            ->select('id','plate','fruit_id','weight','entry_date')
             ->with('fruit', 'hall', 'city', 'province', 'stall')
             ->when($this->array->get('province_id'), function ($query, $param) {
                 $query->where('province_id', $param);
@@ -45,9 +47,8 @@ class EgressExport implements FromCollection, ShouldAutoSize,WithHeadings
     public function headings(): array
     {
         return [
-            'id',
-            'plate',
-            'plate_image',
+            'شناسه',
+            'پلاک',
             'fruit_id',
             'weight',
             'entry_date',
