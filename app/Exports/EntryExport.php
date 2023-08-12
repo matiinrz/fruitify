@@ -20,7 +20,7 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
 
     public function collection(): Collection
     {
-        return Entry::query()
+        $entryCollection = Entry::query()
             ->select('entry.id', 'entry.plate', 'fruit.name as fruit_name', 'entry.weight', 'entry.entry_date',
                 'provinces.name as province_name', 'cities.name as city_name', 'stalls.name as stall_name',
                 'halls.name as hall_name', 'entry.fruit_id', 'entry.province_id', 'entry.city_id', 'entry.stall_id',
@@ -48,6 +48,17 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
             ->orderByDesc('created_at')->get();
+
+        $entryCollection->map(function ($array) {
+            unset($array['fruit_id']);
+            unset($array['province_id']);
+            unset($array['city_id']);
+            unset($array['stall_id']);
+            unset($array['hall_id']);
+            unset($array['created_at']);
+            return $array;
+        });
+        return $entryCollection;
     }
 
     public function headings(): array
