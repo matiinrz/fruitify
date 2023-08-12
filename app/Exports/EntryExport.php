@@ -24,7 +24,6 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->select('entry.id', 'entry.plate', 'entry.fruit_id', 'fruit.name', 'entry.weight',
                 'entry.entry_date', 'entry.province_id', 'provinces.name', 'entry.city_id', 'cities.name',
                 'entry.stall_id', 'stalls.name', 'entry.hall_id', 'halls.name', 'entry.created_at')
-
             ->join('fruit', 'entry.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'entry.province_id', '=', 'provinces.id')
             ->join('cities', 'entry.city_id', '=', 'cities.id')
@@ -53,18 +52,15 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function headings(): array
     {
         return [
-            'id',
-            'plate',
-            'plate_image',
-            'fruit_id',
-            'weight',
-            'entry_date',
-            'user_id',
-            'province_id',
-            'city_id',
-            'stall_id',
-            'hall_id',
-            'created_at',
+            'شناسه',
+            'پلاک',
+            'میوه',
+            'وزن(کیلوگرم)',
+            'تاریخ ثبت',
+            'استان',
+            'شهر',
+            'غرفه',
+            'تالار',
         ];
     }
 }
