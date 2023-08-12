@@ -49,7 +49,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->orderByDesc('created_at')->get();
 
         $egressCollection->map(function ($array, $key) {
-            array_unshift($array->toAarray(), ['row' => $key + 1]);
+            $array = ['row' => $key + 1] + $array->all();
             unset($array['fruit_id']);
             unset($array['province_id']);
             unset($array['city_id']);
