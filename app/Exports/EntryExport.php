@@ -57,7 +57,7 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
             unset($array['stall_id']);
             unset($array['hall_id']);
             unset($array['created_at']);
-            $array['entry_date'] = Jalalian::fromDateTime($array['entry_date']);
+            $array['entry_date'] = Jalalian::fromDateTime($array['entry_date'])->format('Y/M/D');
             return $array;
         });
         return $entryCollection;
