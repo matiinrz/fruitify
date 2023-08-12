@@ -21,9 +21,9 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function collection(): Collection
     {
         return Entry::query()
-            ->select('entry.id', 'entry.plate', 'entry.fruit_id', 'fruit.name', 'entry.weight',
-                'entry.entry_date', 'entry.province_id', 'provinces.name', 'entry.city_id', 'cities.name',
-                'entry.stall_id', 'stalls.name', 'entry.hall_id', 'halls.name', 'entry.created_at')
+            ->select('entry.id', 'entry.plate', 'fruit.name as fruit_name', 'entry.weight', 'entry.entry_date',
+                'provinces.name as province_name', 'cities.name', 'stalls.name', 'halls.name as hall_name', 'entry.fruit_id',
+                'entry.province_id', 'entry.city_id', 'entry.stall_id', 'entry.hall_id', 'entry.created_at')
             ->join('fruit', 'entry.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'entry.province_id', '=', 'provinces.id')
             ->join('cities', 'entry.city_id', '=', 'cities.id')
