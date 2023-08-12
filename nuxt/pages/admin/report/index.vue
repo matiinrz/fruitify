@@ -94,7 +94,7 @@
                     </v-row>
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn block @click="changePage()" class="text-white">تایید</v-btn>
+                    <v-btn block @click="changePage(); filtersDialog = false" class="text-white">تایید</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
