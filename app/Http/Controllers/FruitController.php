@@ -44,6 +44,7 @@ class FruitController extends Controller
             $fruit->image = $request->file('image')->store('fruit');
         }
         $fruit->save();
+        return response()->json($fruit);
     }
 
     public function destroy(string $id)
