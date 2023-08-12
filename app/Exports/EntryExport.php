@@ -47,9 +47,7 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
-            ->orderByDesc('created_at')->get()->makeHidden(
-                ['entry.fruit_id', 'entry.province_id', 'entry.city_id',
-                    'entry.stall_id', 'entry.hall_id', 'entry.created_at']);
+            ->orderByDesc('created_at')->get();
     }
 
     public function headings(): array
