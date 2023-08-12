@@ -19,10 +19,11 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
 
     public function collection(): Collection
     {
-        return Egress::query()
-            ->select('egress.id', 'egress.plate', 'fruit.name', 'egress.weight', 'egress.entry_date',
-                 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
-                'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
+        $egressCollection = Egress::query()
+            ->select('egress.id', 'egress.plate', 'fruit.name as fruit_name', 'egress.weight', 'egress.entry_date',
+                'provinces.name as province_name', 'cities.name as city_name', 'stalls.name as stall_name',
+                'halls.name as hall_name', 'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id',
+                'egress.hall_id', 'egress.created_at')
             ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'egress.province_id', '=', 'provinces.id')
             ->join('cities', 'egress.city_id', '=', 'cities.id')
@@ -45,15 +46,25 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
-            ->orderByDesc('created_at')->get()->prepend([
-                'egress id', 'egress plate', 'fruit name', 'egress weight', 'egress entry_date',
-                'egress fruit_id', 'provinces name', 'cities name', 'stalls name', 'halls name',
-            ]);
+            ->orderByDesc('created_at')->get();
+
+        $egressCollection->map(function ($array, $key) {
+            $array = collect(['row' => $key + 1] + collect($array)->all());
+            unset($array['fruit_id']);
+            unset($array['province_id']);
+            unset($array['city_id']);
+            unset($array['stall_id']);
+            unset($array['hall_id']);
+            unset($array['created_at']);
+            return $array;
+        });
+        return $egressCollection;
     }
 
     public function headings(): array
     {
         return [
+            'ردیف',
             'شناسه',
             'پلاک',
             'میوه',
