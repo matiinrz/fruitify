@@ -10,6 +10,7 @@ use App\Http\Controllers\EntryController;
 use App\Http\Controllers\FruitController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\StallController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::post('auth/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::resource('users', UsersController::class);
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);
     Route::resource('fruit', FruitController::class);
