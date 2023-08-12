@@ -8,7 +8,7 @@
 
         <v-btn to="/admin/users">
             <v-icon>mdi-account</v-icon>
-            نیرو
+            کاربر
         </v-btn>
 
         <v-btn to="/admin/fruit">
