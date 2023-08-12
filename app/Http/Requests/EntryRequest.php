@@ -18,11 +18,11 @@ class EntryRequest extends FormRequest
             'plate_image' => ['nullable','file'],
             'type' => ['required'],
             'type.*' => ['required'],
-            'entry_date' => ['required'],
-            'province_id' => ['required'],
-            'city_id' => ['required'],
-            'hall_id' => ['required'],
-            'stall_id' => ['required'],
+            'entry_date' => ['required', 'exists:entries,id'],
+            'province_id' => ['required', 'exists:provinces,id'],
+            'city_id' => ['required', 'exists:cities,id'],
+            'hall_id' => ['required', 'exists:halls,id'],
+            'stall_id' => ['required', 'exists:stalls,id'],
             'image' => ['nullable', 'file']
         ];
     }

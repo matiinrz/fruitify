@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class AuthController extends Controller
         return response()->json($user);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         /** @var User $user */
         $user = User::query()
