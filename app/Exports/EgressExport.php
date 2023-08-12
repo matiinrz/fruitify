@@ -21,7 +21,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
     {
         return Egress::query()
             ->select('egress.id', 'egress.plate', 'fruit.name', 'egress.weight', 'egress.entry_date',
-                 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
+                'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
                 'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
             ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'egress.province_id', '=', 'provinces.id')
@@ -48,7 +48,9 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->orderByDesc('created_at')->get()->prepend([
                 'egress id', 'egress plate', 'fruit name', 'egress weight', 'egress entry_date',
                 'egress fruit_id', 'provinces name', 'cities name', 'stalls name', 'halls name',
-            ]);
+            ])->makeHidden(
+                ['egress.fruit_id', 'egress.province_id', 'egress.city_id',
+                    'egress.stall_id', 'egress.hall_id', 'egress.created_at']);
     }
 
     public function headings(): array
