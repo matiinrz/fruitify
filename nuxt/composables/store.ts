@@ -83,8 +83,17 @@ function jalalian(input: any) {
 }
 const { $event } = useNuxtApp()
 
-export function showImageDialog(image) {
+export function showImageDialog(image: string) {
+    console.log('image :', image);
+
     $event('image-dialog', image)
+}
+
+export function getPermission(permission: string) {
+    switch (permission) {
+        case 'user': return 'اپراتور'
+        case 'superuser': return 'ادمین'
+    }
 }
 
 export function getTime(input: string) {

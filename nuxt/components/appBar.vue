@@ -4,9 +4,9 @@
       <v-app-bar-title class="text-primary">{{ appBarTitle }}</v-app-bar-title>
 
       <template v-slot:append>
-
-        <v-btn icon="mdi-account-outline" to="/admin"></v-btn>
-        <v-btn icon="mdi-power" @click="logoutDialog = true"></v-btn>
+        <v-btn size="small" icon="mdi-home" to="/"></v-btn>
+        <v-btn size="small" icon="mdi-account-outline" to="/admin"></v-btn>
+        <v-btn size="small" icon="mdi-power" @click="logoutDialog = true"></v-btn>
       </template>
     </v-app-bar>
 

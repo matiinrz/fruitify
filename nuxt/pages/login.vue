@@ -1,33 +1,40 @@
 <template>
-    <v-container class=" fill-height justify-center">
+    <v-container class="justify-center login-bg">
         <v-row class="d-flex justify-center">
-            <v-col cols="12">
-                <v-img height="500" src="/Comp-2.gif"/>
+            <v-col cols="9" md="8" sm="6" lg="4">
+
+                <v-img src="/images/logo.png" />
+
             </v-col>
+
             <v-col cols="12" md="8" sm="6" lg="4">
                 <v-card color="light" elevation="2" class="rounded-lg" :loading="loading">
+
                     <v-card-text class="customClass">
-                        <v-text-field light variant="solo-inverted" label="نام کاربری" class="mt-4" v-model="username"/>
-                        <v-text-field light variant="solo-inverted" label="رمز عبور" type="Password" v-model="password"/>
+                        <v-text-field light variant="solo-inverted" label="نام کاربری" class="mt-4" v-model="username" />
+                        <v-text-field light variant="solo-inverted" label="رمز عبور" type="Password" v-model="password" />
                     </v-card-text>
                     <v-card-actions>
                         <v-btn block @click="login()" class="text-white" size="large">تایید</v-btn>
                     </v-card-actions>
-
                 </v-card>
+
             </v-col>
         </v-row>
+        <v-card-subtitle class="d-flex justify-center align-end ma-6  ">
+            فراهم شده توسط شرکت فنی مهندسی <a href="https://pooyapendar.ir/" target="_blank">پویا پندار پیشرو</a>
+        </v-card-subtitle>
 
     </v-container>
 </template>
 <script setup>
-import {toast} from 'vue3-toastify'
+import { toast } from 'vue3-toastify'
 
-const {$event} = useNuxtApp()
+const { $event } = useNuxtApp()
 const auth = useAuth()
 const loading = ref(false)
 if (auth.loggedIn) {
-    useRouter().push({path: '/'});
+    useRouter().push({ path: '/' });
 }
 const username = ref()
 const password = ref()
@@ -42,11 +49,11 @@ const login = async () => {
             password: password.value,
         },
     })
-        .then(({data}) => {
-            useRouter().push({path: '/'});
+        .then(({ data }) => {
+            useRouter().push({ path: '/' });
             toast.success('شما با موقیت وارد شدید')
         })
-        .catch(({response}) => {
+        .catch(({ response }) => {
             if (response?._data?.message) {
                 toast.error(response?._data?.message)
                 errors.value.code = response._data.message
@@ -58,7 +65,6 @@ const login = async () => {
 
 </script>
 <style scoped>
-
 .v-input:-webkit-autofill,
 .v-input:-webkit-autofill:hover,
 .v-input:-webkit-autofill:focus,
@@ -82,12 +88,10 @@ const login = async () => {
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset !important;
 }
 
-/* .bg-pic {
-    background-image: url("/images/login.jpg");
-    background-size: cover;
+.login-bg {
+    background-image: url("/images/loginBg.jpg");
     background-repeat: repeat-y;
-    width: 100%;
     height: 100vh;
-    background-size: cover;
-} */
+
+}
 </style>

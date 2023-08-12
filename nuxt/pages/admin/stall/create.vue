@@ -39,11 +39,11 @@ const setStall = async () => {
         method: 'POST',
         body: { ...object.value }
     });
-    if (data.value) {
+    if (data?.value) {
         toast.success(' با موفقیت ثبت شد')
         useRouter().push('/admin/stall')
     } else if (error?.value?.data?.errors) {
-        errors.value = error?.value?.data?.errors
+        errors.value = error?.value?._data?.errors
     }
     loading.value = false
 }

@@ -1,14 +1,14 @@
 <template>
     <v-bottom-navigation :active="active" back>
-        <v-btn to="/">
-            <v-icon>mdi-home-roof</v-icon>
-
-            خانه
-        </v-btn>
 
         <v-btn to="/admin/report">
             <v-icon>mdi-home-analytics</v-icon>
             گزارش
+        </v-btn>
+
+        <v-btn to="/admin/users">
+            <v-icon>mdi-account</v-icon>
+            نیرو
         </v-btn>
 
         <v-btn to="/admin/fruit">
