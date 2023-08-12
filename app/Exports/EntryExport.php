@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Morilog\Jalali\Jalalian;
 
 class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
 {
@@ -56,6 +57,7 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
             unset($array['stall_id']);
             unset($array['hall_id']);
             unset($array['created_at']);
+            $array['entry_date'] = Jalalian::forge($array['entry_date'])->format('date');
             return $array;
         });
         return $entryCollection;
