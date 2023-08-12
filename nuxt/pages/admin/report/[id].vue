@@ -9,6 +9,7 @@
             </v-card-title>
             <v-divider />
             <v-card-text>
+                <div class="text-center">تصویر پلاک</div>
                 <v-img v-if="plate_image" :src="imageUrl(plate_image)" height="200"
                     @click="showImageDialog(imageUrl(plate_image))" />
                 <camera-picker label="تصویر پلاک" v-model="object.plate_image" :errors="errors?.plate_image" />
@@ -69,6 +70,7 @@
                         <v-text-field v-model="object.weight" />
                     </v-col>
                 </v-row>
+                <div class="text-center">تصویر بارنامه</div>
                 <v-img v-if="image" height="200" :src="imageUrl(image)" @click="showImageDialog(imageUrl(image))" />
                 <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر" />
             </v-card-text>

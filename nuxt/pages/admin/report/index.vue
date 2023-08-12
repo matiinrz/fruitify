@@ -20,19 +20,27 @@
                     <thead>
                         <tr>
                             <th class="text-center text-primary">ردیف</th>
+                            <th class="text-center text-primary"> تصویر پلاک</th>
                             <th class="text-center text-primary">پلاک</th>
                             <th class="text-center text-primary">تاریخ</th>
                             <th class="text-center text-primary">میوه</th>
                             <th class="text-center text-primary">وزن</th>
                             <th class="text-center text-primary">مبدا</th>
                             <th class="text-center text-primary">مقصد</th>
-                            <th class="text-center text-primary">تصویر</th>
+                            <th class="text-center text-primary"> تصویر بارنامه</th>
                             <th class="text-center text-primary">عملیات</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(item, i) in reports.data" :key="reports">
                             <td class="text-center text-primary">{{ i + 1 }}</td>
+                            <td class="text-center">
+                                <v-avatar v-if="item.plate_image">
+                                    <v-img :src="imageUrl(item.plate_image)"
+                                        @click="showImageDialog(imageUrl(item.plate_image))" />
+                                </v-avatar>
+                                <span v-else>-</span>
+                            </td>
                             <td class="text-center">{{ item.plate }}</td>
                             <td class="text-center">{{ datetime(item.entry_date) }}</td>
                             <td class="text-center">{{ item?.fruit.name }}</td>
@@ -107,6 +115,7 @@ definePageMeta({
 });
 const { $event } = useNuxtApp()
 $event('tilte-chaneg', 'لیست ورودی و خروجی')
+
 const config = useRuntimeConfig();
 const baseUrl = config.public.BASE_URL;
 const reports = ref([])
