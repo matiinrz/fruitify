@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Morilog\Jalali\Jalalian;
 
 class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
 {
@@ -55,6 +56,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             unset($array['stall_id']);
             unset($array['hall_id']);
             unset($array['created_at']);
+            $array['entry_date'] = Jalalian::fromDateTime($array['entry_date'])->format('Y/m/d');
             return $array;
         });
         return $egressCollection;
