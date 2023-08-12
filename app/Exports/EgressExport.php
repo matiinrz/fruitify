@@ -21,9 +21,8 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
     {
         return Egress::query()
             ->select('egress.id', 'egress.plate', 'fruit.name', 'egress.weight', 'egress.entry_date',
-                'egress.fruit_id', 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
-
-                'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
+                 'provinces.name', 'cities.name', 'stalls.name', 'halls.name',
+                'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id', 'egress.hall_id', 'egress.created_at')
             ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'egress.province_id', '=', 'provinces.id')
             ->join('cities', 'egress.city_id', '=', 'cities.id')
