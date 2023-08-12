@@ -22,8 +22,9 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
     {
         return Entry::query()
             ->select('entry.id', 'entry.plate', 'fruit.name as fruit_name', 'entry.weight', 'entry.entry_date',
-                'provinces.name as province_name', 'cities.name', 'stalls.name', 'halls.name as hall_name', 'entry.fruit_id',
-                'entry.province_id', 'entry.city_id', 'entry.stall_id', 'entry.hall_id', 'entry.created_at')
+                'provinces.name as province_name', 'cities.name as city_name', 'stalls.name as stall_name',
+                'halls.name as hall_name', 'entry.fruit_id', 'entry.province_id', 'entry.city_id', 'entry.stall_id',
+                'entry.hall_id', 'entry.created_at')
             ->join('fruit', 'entry.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'entry.province_id', '=', 'provinces.id')
             ->join('cities', 'entry.city_id', '=', 'cities.id')
