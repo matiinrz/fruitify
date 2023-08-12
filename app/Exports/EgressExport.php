@@ -45,7 +45,12 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
-            ->orderByDesc('created_at')->get();
+            ->orderByDesc('created_at')->get()->prepend([
+                'egress id',
+                'egress plate',
+                'fruit name',
+                'egress weight',
+            ]);
     }
 
     public function headings(): array
