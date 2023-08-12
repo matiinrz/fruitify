@@ -18,7 +18,7 @@ class EgressRequest extends FormRequest
             'plate_image' => ['nullable', 'file'],
             'type' => ['required'],
             'type.*' => ['required'],
-            'entry_date' => ['required', 'exists:entry,id'],
+            'entry_date' => ['required'],
             'province_id' => ['required', 'exists:provinces,id'],
             'city_id' => ['required', 'exists:cities,id'],
             'hall_id' => ['required', 'exists:halls,id'],
