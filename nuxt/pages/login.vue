@@ -1,12 +1,13 @@
 <template>
-    <v-container class="justify-center login-bg">
+    <v-container :class="mobile ? 'login-bg' : ''">
         <v-row class="d-flex justify-center">
             <v-col cols="9" md="8" sm="6" lg="4">
 
                 <v-img src="/images/logo.png" />
 
             </v-col>
-
+        </v-row>
+        <v-row class="d-flex justify-center">
             <v-col cols="12" md="8" sm="6" lg="4">
                 <v-card color="light" elevation="2" class="rounded-lg" :loading="loading">
 
@@ -29,7 +30,8 @@
 </template>
 <script setup>
 import { toast } from 'vue3-toastify'
-
+import { useDisplay } from 'vuetify'
+const { mobile } = useDisplay()
 const { $event } = useNuxtApp()
 const auth = useAuth()
 const loading = ref(false)
