@@ -3,9 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Egress;
-use App\Models\Entry;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -22,9 +20,9 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function collection(): Collection
     {
         return Egress::query()
-            ->select('egress.id', 'plate', 'fruit_id', 'fruit.name', 'weight',
-                'entry_date', 'egress.province_id', 'provinces.name', 'egress.city_id', 'cities.name', 'egress.stall_id',
-                'stalls.name', 'egress.hall_id', 'halls.name', 'egress.created_at')
+            ->select('egress.id', 'egress.plate', 'egress.fruit_id', 'fruit.name', 'egress.weight',
+                'egress.entry_date', 'egress.province_id', 'provinces.name', 'egress.city_id', 'cities.name',
+                'egress.stall_id', 'stalls.name', 'egress.hall_id', 'halls.name', 'egress.created_at')
             ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
             ->join('provinces', 'egress.province_id', '=', 'provinces.id')
             ->join('cities', 'egress.city_id', '=', 'cities.id')
