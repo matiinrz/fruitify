@@ -57,8 +57,10 @@
 }
 
 .bg-pattern {
-  background-image: url("/images/bg-pattern.jpg") !important;
-  background-repeat: repeat-y;
+  background-image: url("/images/fruit-back.jpg") !important;
+  background-repeat: repeat-y !important;
+  height: 100vh !important;
+  background-size: cover;
 }
 
 h1 {

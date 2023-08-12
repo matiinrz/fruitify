@@ -1,6 +1,6 @@
 <template>
     <v-file-input v-model="file" :label="label" accept="image/*" @change="capturePhoto" @click.clear="cleared()"
-        variant="underlined" :error-messages="errors || ''"></v-file-input>
+        variant="solo" :error-messages="errors || ''"></v-file-input>
 </template>
 <script setup>
 let emit = defineEmits(['update:modelValue']);

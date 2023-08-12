@@ -1,5 +1,5 @@
 <template>
-    <v-container :class="mobile ? 'login-bg' : ''">
+    <v-container :class="mobile ? 'bg-pattern' : ''">
         <v-row class="d-flex justify-center">
             <v-col cols="9" md="8" sm="6" lg="4">
 
@@ -18,13 +18,15 @@
                     <v-card-actions>
                         <v-btn block @click="login()" class="text-white" size="large">تایید</v-btn>
                     </v-card-actions>
+                    <v-card-subtitle class="d-flex justify-center align-end ma-6  ">
+                        فراهم شده توسط شرکت فنی مهندسی <a href="https://pooyapendar.ir/" target="_blank">پویا پندار
+                            پیشرو</a>
+                    </v-card-subtitle>
                 </v-card>
 
             </v-col>
         </v-row>
-        <v-card-subtitle class="d-flex justify-center align-end ma-6  ">
-            فراهم شده توسط شرکت فنی مهندسی <a href="https://pooyapendar.ir/" target="_blank">پویا پندار پیشرو</a>
-        </v-card-subtitle>
+
 
     </v-container>
 </template>
