@@ -116,3 +116,20 @@ export function fa(input: any) {
         return input;
     }
 }
+
+export function en(input: any) {
+    if (input === undefined) return "";
+    let str1 = input.toString().trim();
+    if (str1 === "") return "";
+    str1 = str1.replace(/۰/gim, "0");
+    str1 = str1.replace(/۱/gim, "1");
+    str1 = str1.replace(/۲/gim, "2");
+    str1 = str1.replace(/۳/gim, "3");
+    str1 = str1.replace(/۴/gim, "4");
+    str1 = str1.replace(/۵/gim, "5");
+    str1 = str1.replace(/۶/gim, "6");
+    str1 = str1.replace(/۷/gim, "7");
+    str1 = str1.replace(/۸/gim, "8");
+    str1 = str1.replace(/۹/gim, "9");
+    return str1;
+}
