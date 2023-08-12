@@ -25,10 +25,10 @@ class EntryController extends Controller
                 $query->where('fruit_id', $param);
             })
             ->when($request->input('created_at_from'), function ($query, $created_at_from) {
-                $query->where('created_at', '<=', "$created_at_from 00:00:00");
+                $query->whereDate('created_at', '<=', "$created_at_from 00:00:00");
             })
             ->when($request->input('created_at_to'), function ($query, $created_at_to) {
-                $query->where('created_at', '>=', "$created_at_to 23:59:59");
+                $query->whereDate('created_at', '>=', "$created_at_to 23:59:59");
             })
             ->orderByDesc('created_at')
             ->paginate());
