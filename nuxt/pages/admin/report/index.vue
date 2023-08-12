@@ -69,17 +69,17 @@
             <v-card color="white">
                 <v-card-text>
                     <v-row>
-                        <v-col cols="6">
+                        <v-col cols="12">
                             <persian-date-picker label="از تاریخ" v-model="filters.created_at_from" />
                         </v-col>
-                        <v-col cols="6">
+                        <v-col cols="12">
                             <persian-date-picker label="تا تاریخ" v-model="filters.created_at_to" />
                         </v-col>
                         <v-col cols="6">
                             <province-picker v-model="filters.province_id" />
                         </v-col>
                         <v-col cols="6">
-                            <city-picker v-model="filters.city_id" />
+                            <city-picker v-model="filters.city_id" :provinceId="filters.province_id" />
                         </v-col>
                         <v-col cols="6">
                             <hall-picker v-model="filters.hall_id" />

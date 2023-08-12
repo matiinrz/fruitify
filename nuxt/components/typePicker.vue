@@ -27,7 +27,7 @@
     <v-dialog v-model="fruitDialog">
         <v-card color="white">
             <v-card-title>
-                <v-text-field label="جستجو" />
+                <v-text-field label="جستجو" v-model="filters.search" @keyup.enter="getFruit()" />
             </v-card-title>
             <v-card-text>
                 <v-list>
