@@ -19,10 +19,10 @@ class EntryRequest extends FormRequest
             'type' => ['required'],
             'type.*' => ['required'],
             'entry_date' => ['required'],
-            'province_id' => ['required'],
-            'city_id' => ['required'],
-            'hall_id' => ['required'],
-            'stall_id' => ['required'],
+            'province_id' => ['required', 'exists:provinces,id'],
+            'city_id' => ['required', 'exists:cities,id'],
+            'hall_id' => ['required', 'exists:halls,id'],
+            'stall_id' => ['required', 'exists:stalls,id'],
             'image' => ['nullable', 'file']
         ];
     }
