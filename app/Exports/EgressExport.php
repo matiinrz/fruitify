@@ -47,12 +47,12 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             })
             ->orderByDesc('created_at')->get();
         $egressCollection->map(function ($array) {
-            unset($array['fruit_id']);
-            unset($array['province_id']);
-            unset($array['city_id']);
-            unset($array['stall_id']);
-            unset($array['hall_id']);
-            unset($array['created_at']);
+            unset($array['egress.fruit_id']);
+            unset($array['egress.province_id']);
+            unset($array['egress.city_id']);
+            unset($array['egress.stall_id']);
+            unset($array['egress.hall_id']);
+            unset($array['egress.created_at']);
             return $array;
         });
         return $egressCollection;
