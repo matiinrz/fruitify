@@ -11,6 +11,7 @@ use App\Http\Controllers\FruitController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\StallController;
 use App\Http\Controllers\UsersController;
+use App\Http\Middleware\ManagementMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('auth/login', [AuthController::class, 'login']);
 
-Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'optimizeImages', ManagementMiddleware::class]], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('users', UsersController::class);
     Route::resource('entry', EntryController::class);
