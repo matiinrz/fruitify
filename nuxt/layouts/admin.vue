@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app class="bg-pattern">
         <v-locale-provider rtl>
             <VitePwaManifest />
             <v-main>

@@ -1,5 +1,5 @@
 <template>
-    <v-container class="d-flex justify-center">
+    <v-container class="d-flex fill-height justify-center">
         <v-card width="600">
             <!-- <v-card-title>
                 <v-img height="400" src="/images/fruit2.png" />
@@ -7,7 +7,7 @@
             <v-card-text>
                 <v-row>
                     <v-col cols="12">
-                        <v-card elevation="2" class="rounded-lg">
+                        <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
                                 <v-img height="200" src="/images/fruitEntry.png" />
                             </v-card-title>
@@ -18,7 +18,7 @@
                         </v-card>
                     </v-col>
                     <v-col cols="12">
-                        <v-card elevation="2" class="rounded-lg">
+                        <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
                                 <v-img height="200" src="/images/fruitEgress.png" />
                             </v-card-title>
@@ -54,7 +54,7 @@ const logout = async () => {
 </script>
 <style scoped>
 .bg-pic {
-    background-image: url("/images/login.jpg");
+    background-image: url("/images/");
     background-size: cover;
     background-repeat: repeat-y;
     width: 100%;

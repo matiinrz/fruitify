@@ -1,5 +1,5 @@
 <template>
-    <v-container :class="mobile ? 'bg-pattern' : ''">
+    <v-container :class="mobile ? 'login-bg' : ''">
         <v-row class="d-flex justify-center">
             <v-col cols="9" md="8" sm="6" lg="4">
 
@@ -93,9 +93,9 @@ const login = async () => {
 }
 
 .login-bg {
-    background-image: url("/images/loginBg.jpg");
+    background-image: url("/images/fruit-back.jpg") !important;
     background-repeat: repeat-y;
     height: 100vh;
-
+    background-size: cover;
 }
 </style>

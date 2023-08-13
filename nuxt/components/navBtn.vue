@@ -1,19 +1,18 @@
 <template>
-    <v-bottom-navigation :active="active" back>
+    <v-bottom-navigation height="70" :active="active" back>
         <v-btn to="/">
-            <v-icon>mdi-home-roof</v-icon>
+            <v-img src="/images/house.png" width="30"></v-img>
 
             خانه
         </v-btn>
 
         <v-btn to="/entry">
-            <v-icon>mdi-login</v-icon>
+            <v-img src="/images/login.png" width="30"></v-img>
             ورودی
         </v-btn>
 
         <v-btn to="/exit">
-            <v-icon>mdi-export</v-icon>
-
+            <v-img src="/images/exit.png" width="30"></v-img>
             خروجی
         </v-btn>
 

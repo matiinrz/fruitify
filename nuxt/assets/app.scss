@@ -52,16 +52,20 @@
 }
 
 .bg-image {
-  background: rgb(220,228,189);
-  background: linear-gradient(90deg, rgba(220,228,189,1) 0%, rgba(208,223,200,1) 100%);
+  background: rgb(220, 228, 189);
+  background: linear-gradient(90deg, rgba(220, 228, 189, 1) 0%, rgba(208, 223, 200, 1) 100%);
 }
 
 .bg-pattern {
-  background-image: url("/images/fruit-back.jpg") !important;
-  background-repeat: repeat-y !important;
-  height: 100vh !important;
+  background-image: url("/images/fruit-pattern.png") !important;
+  background-repeat: repeat !important;
+  max-width: 100% !important;
   background-size: cover;
 }
+
+
+
+
 
 h1 {
   font-family: Peyda !important;
