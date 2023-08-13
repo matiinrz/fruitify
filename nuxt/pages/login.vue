@@ -1,14 +1,14 @@
 <template>
     <v-container :class="mobile ? 'login-bg' : ''">
         <v-row class="d-flex justify-center">
-            <v-col cols="9" md="8" sm="6" lg="4">
+            <v-col cols="9" md="8" sm="6" lg="4" xl="3">
 
                 <v-img src="/images/logo.png" />
 
             </v-col>
         </v-row>
         <v-row class="d-flex justify-center">
-            <v-col cols="12" md="8" sm="6" lg="4">
+            <v-col cols="12" md="8" sm="6" lg="4" xl="3">
                 <v-card color="light" elevation="2" class="rounded-lg" :loading="loading">
 
                     <v-card-text class="customClass">

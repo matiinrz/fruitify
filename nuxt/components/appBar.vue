@@ -5,7 +5,7 @@
 
       <template v-slot:append>
         <v-btn size="small" icon="mdi-home" to="/"></v-btn>
-        <v-btn size="small" icon="mdi-account-outline" to="/admin"></v-btn>
+        <v-btn v-if="auth.user.permission == 'superuser'" size="small" icon="mdi-account-outline" to="/admin"></v-btn>
         <v-btn size="small" icon="mdi-power" @click="logoutDialog = true"></v-btn>
       </template>
     </v-app-bar>

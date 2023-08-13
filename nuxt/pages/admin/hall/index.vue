@@ -1,6 +1,6 @@
 <template>
-    <v-container>
-        <v-card>
+    <v-container class="d-flex justify-center">
+        <v-card width="600">
             <v-card-title class=" text-center">
                 مدیریت تالارها
             </v-card-title>

@@ -1,6 +1,6 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
-        <v-card v-if="!loading" max-width="600" :loading="loading">
+        <v-card v-if="!loading" :loading="loading">
             <v-card-title v-if="reportType === 'entry'" class=" text-center">
                 ویرایش ورودی
             </v-card-title>
