@@ -30,7 +30,7 @@
                     </v-col>
                 </v-row>
                 <type-picker v-model="object.type" :errors="errors?.type" />
-                <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر" />
+                <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر بارنامه" />
             </v-card-text>
             <v-divider />
             <v-card-actions>

@@ -23,7 +23,7 @@
                                 <v-img height="200" src="/images/exit-image.png" />
                             </v-card-title>
                             <v-card-text class="ma-2 text-center">
-                                <v-btn block class="mt-2 text-white" color="#00D6DE" size="large" to="/exit">ثبت
+                                <v-btn block class="mt-2 text-white" color="#0096A7" size="large" to="/exit">ثبت
                                     خروجی</v-btn>
                             </v-card-text>
                         </v-card>
