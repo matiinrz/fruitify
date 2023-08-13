@@ -25,11 +25,6 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
                 'provinces.name as province_name', 'cities.name as city_name', 'stalls.name as stall_name',
                 'halls.name as hall_name', 'egress.fruit_id', 'egress.province_id', 'egress.city_id', 'egress.stall_id',
                 'egress.hall_id', 'egress.created_at')
-            ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
-            ->join('provinces', 'egress.province_id', '=', 'provinces.id')
-            ->join('cities', 'egress.city_id', '=', 'cities.id')
-            ->join('halls', 'egress.hall_id', '=', 'halls.id')
-            ->join('stalls', 'egress.stall_id', '=', 'stalls.id')
             ->when($this->array->get('province_id'), function ($query, $param) {
                 $query->where('province_id', $param);
             })->when($this->array->get('city_id'), function ($query, $param) {
@@ -47,6 +42,11 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
                 $query->where('created_at', '>=', "$created_at_to 23:59:59");
             })
+            ->join('fruit', 'egress.fruit_id', '=', 'fruit.id')
+            ->join('provinces', 'egress.province_id', '=', 'provinces.id')
+            ->join('cities', 'egress.city_id', '=', 'cities.id')
+            ->join('halls', 'egress.hall_id', '=', 'halls.id')
+            ->join('stalls', 'egress.stall_id', '=', 'stalls.id')
             ->orderByDesc('created_at')->get();
 
         $egressCollection->map(function ($array) {
