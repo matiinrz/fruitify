@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Morilog\Jalali\Jalalian;
 
 class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
 {
@@ -48,14 +49,14 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             })
             ->orderByDesc('created_at')->get();
 
-        $egressCollection->map(function ($array, $key) {
-            $array = collect(['row' => $key + 1] + collect($array)->all());
+        $egressCollection->map(function ($array) {
             unset($array['fruit_id']);
             unset($array['province_id']);
             unset($array['city_id']);
             unset($array['stall_id']);
             unset($array['hall_id']);
             unset($array['created_at']);
+            $array['entry_date'] = Jalalian::fromDateTime($array['entry_date'])->format('Y/m/d');
             return $array;
         });
         return $egressCollection;
@@ -64,7 +65,6 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function headings(): array
     {
         return [
-            'ردیف',
             'شناسه',
             'پلاک',
             'میوه',
