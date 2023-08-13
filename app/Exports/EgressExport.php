@@ -42,7 +42,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             })->when($this->array->get('hall_id'), function ($query, $param) {
                 $query->where('hall_id', $param);
             })->when($this->array->get('fruit_id'), function ($query, $param) {
-                $query->where('fruit_id', $this->array->get('fruit_id'));
+                $query->where('fruit_id', $param);
             })
             ->when($this->array->get('created_at_from'), function ($query, $created_at_from) {
                 $query->where('created_at', '<=', "$created_at_from 00:00:00");
