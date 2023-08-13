@@ -1,6 +1,6 @@
 <template>
     <v-container class="d-flex fill-height justify-center">
-        <v-card v-if="!loading" max-width="600" :loading="loading">
+        <v-card v-if="!loading" :loading="loading">
             <v-card-title v-if="reportType === 'entry'" class=" text-center">
                 ویرایش ورودی
             </v-card-title>
@@ -72,7 +72,7 @@
                 </v-row>
                 <div class="text-center">تصویر بارنامه</div>
                 <v-img v-if="image" height="200" :src="imageUrl(image)" @click="showImageDialog(imageUrl(image))" />
-                <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر" />
+                <camera-picker v-model="object.image" :errors="errors?.image" label="تصویر بارنامه" />
             </v-card-text>
             <v-divider />
             <v-card-actions>

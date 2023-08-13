@@ -9,10 +9,10 @@
                     <v-col cols="12">
                         <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
-                                <v-img height="200" src="/images/fruitEntry.png" />
+                                <v-img height="200" src="/images/entry-image.png" />
                             </v-card-title>
                             <v-card-text class="ma-2 text-center">
-                                <v-btn block class="mt-2 text-white" color="#CE2208" size="large" to="/entry">ثبت
+                                <v-btn block class="mt-2 text-white" color="#618600" size="large" to="/entry">ثبت
                                     ورودی</v-btn>
                             </v-card-text>
                         </v-card>
@@ -20,10 +20,10 @@
                     <v-col cols="12">
                         <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
-                                <v-img height="200" src="/images/fruitEgress.png" />
+                                <v-img height="200" src="/images/exit-image.png" />
                             </v-card-title>
                             <v-card-text class="ma-2 text-center">
-                                <v-btn block class="mt-2 text-white" color="#FE8901" size="large" to="/exit">ثبت
+                                <v-btn block class="mt-2 text-white" color="#0096A7" size="large" to="/exit">ثبت
                                     خروجی</v-btn>
                             </v-card-text>
                         </v-card>

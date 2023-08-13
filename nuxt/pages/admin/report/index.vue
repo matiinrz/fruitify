@@ -1,6 +1,6 @@
 <template>
-    <v-container>
-        <v-card max-width="600">
+    <v-container class="d-flex justify-center">
+        <v-card width="600">
             <v-card-title class=" text-center">گزارش گیری</v-card-title>
             <v-divider />
             <v-card-subtitle class="d-flex mt-2">
