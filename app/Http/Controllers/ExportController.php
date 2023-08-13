@@ -11,6 +11,7 @@ class ExportController extends Controller
 
     public function index(Request $request)
     {
+        return response()->json($request->input('arguments'));
         ini_set('memory_limit', '4096M');
         ini_set('post_max_size', '210M');
         set_time_limit(3600);
