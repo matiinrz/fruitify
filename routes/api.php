@@ -31,11 +31,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('auth/login', [AuthController::class, 'login']);
 
+
+Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
+    Route::resource('entry', EntryController::class);
+    Route::resource('egress', EgressController::class);
+});
+
 Route::group(['middleware' => ['auth:sanctum', 'optimizeImages', ManagementMiddleware::class]], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('users', UsersController::class);
-    Route::resource('entry', EntryController::class);
-    Route::resource('egress', EgressController::class);
     Route::resource('fruit', FruitController::class);
     Route::resource('cities', CityController::class);
     Route::resource('provinces', ProvinceController::class);
