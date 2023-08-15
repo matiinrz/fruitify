@@ -32,13 +32,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('auth/login', [AuthController::class, 'login']);
 
 
-Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
-    Route::resource('entry', EntryController::class);
-    Route::resource('egress', EgressController::class);
-});
-
 Route::group(['middleware' => ['auth:sanctum', 'optimizeImages', ManagementMiddleware::class]], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
+});
+
+Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
     Route::resource('users', UsersController::class);
     Route::resource('fruit', FruitController::class);
     Route::resource('cities', CityController::class);
@@ -47,4 +45,6 @@ Route::group(['middleware' => ['auth:sanctum', 'optimizeImages', ManagementMiddl
     Route::resource('stalls', StallController::class);
     Route::any('exports', [ExportController::class, 'index'])->name('download');
     Route::post('auth/logout', [AuthController::class, 'destroy']);
+    Route::resource('entry', EntryController::class);
+    Route::resource('egress', EgressController::class);
 });

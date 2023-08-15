@@ -43,10 +43,10 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
                 $query->where('fruit_id', $param);
             })
             ->when($this->array->get('created_at_from'), function ($query, $created_at_from) {
-                $query->where('created_at', '<=', "$created_at_from 00:00:00");
+                $query->where('entry_date', '<=', "$created_at_from 00:00:00");
             })
             ->when($this->array->get('created_at_to'), function ($query, $created_at_to) {
-                $query->where('created_at', '>=', "$created_at_to 23:59:59");
+                $query->where('entry_date', '>=', "$created_at_to 23:59:59");
             })
             ->orderByDesc('created_at')->get();
 
