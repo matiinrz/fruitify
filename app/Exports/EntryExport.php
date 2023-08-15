@@ -48,7 +48,7 @@ class EntryExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_from'), function ($query, $created_at_to) {
                 $query->whereDate('entry_date', '>=', "$created_at_to");
             })
-            ->orderByDesc('created_at')->get();
+            ->orderByDesc('entry_date')->get();
 
         $entryCollection->map(function ($array) {
             unset($array['fruit_id']);

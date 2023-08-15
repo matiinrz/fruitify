@@ -30,7 +30,7 @@ class EgressController extends Controller
             ->when($request->input('created_at_from'), function ($query, $created_at_to) {
                 $query->whereDate('entry_date', '>=', "$created_at_to");
             })
-            ->orderByDesc('created_at')
+            ->orderByDesc('entry_date')
             ->paginate());
     }
 

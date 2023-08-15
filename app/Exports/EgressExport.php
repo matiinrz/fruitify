@@ -33,16 +33,16 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->join('cities', 'egress.city_id', '=', 'cities.id')
             ->join('halls', 'egress.hall_id', '=', 'halls.id')
             ->join('stalls', 'egress.stall_id', '=', 'stalls.id')
-            ->when($this->array->get('province_id'), function ($query, $param) {
-                $query->where('province_id', $param);
-            })->when($this->array->get('city_id'), function ($query, $param) {
-                $query->where('city_id', $param);
-            })->when($this->array->get('stall_id'), function ($query, $param) {
-                $query->where('stall_id', $param);
-            })->when($this->array->get('hall_id'), function ($query, $param) {
-                $query->where('hall_id', $param);
-            })->when($this->array->get('fruit_id'), function ($query, $param) {
-                $query->where('fruit_id', $param);
+            ->when($this->array->get('entry.province_id'), function ($query, $param) {
+                $query->where('entry.province_id', $param);
+            })->when($this->array->get('entry.city_id'), function ($query, $param) {
+                $query->where('entry.city_id', $param);
+            })->when($this->array->get('entry.stall_id'), function ($query, $param) {
+                $query->where('entry.stall_id', $param);
+            })->when($this->array->get('entry.hall_id'), function ($query, $param) {
+                $query->where('entry.hall_id', $param);
+            })->when($this->array->get('entry.fruit_id'), function ($query, $param) {
+                $query->where('entry.fruit_id', $param);
             })
             ->when($this->array->get('created_at_to'), function ($query, $created_at_from) {
                 $query->whereDate('entry_date', '<=', "$created_at_from");
@@ -50,7 +50,7 @@ class EgressExport implements FromCollection, ShouldAutoSize, WithHeadings
             ->when($this->array->get('created_at_from'), function ($query, $created_at_to) {
                 $query->whereDate('entry_date', '>=', "$created_at_to");
             })
-            ->orderByDesc('created_at')->get();
+            ->orderByDesc('entry_date')->get();
 
         $egressCollection->map(function ($array) {
             unset($array['fruit_id']);
