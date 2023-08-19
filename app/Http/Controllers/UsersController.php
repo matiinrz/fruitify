@@ -18,6 +18,7 @@ class UsersController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->username = $request->input('username');
+        $user->permission = $request->input('permission');
         $user->password = bcrypt($request->input('password'));
         $user->save();
         return response()->json($user);
@@ -35,6 +36,7 @@ class UsersController extends Controller
         $user = User::query()->findOrFail($id);
         $user->name = $request->input('name');
         $user->username = $request->input('username');
+        $user->permission = $request->input('permission');
         if (!empty($request->input('password'))) {
             $user->password = bcrypt($request->input('password'));
         }
