@@ -17,7 +17,7 @@ class HallRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => ['required', 'unique:halls:name']
+            "name" => ['required', 'unique:halls,name']
         ];
     }
 }
