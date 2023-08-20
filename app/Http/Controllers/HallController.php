@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FruitRequest;
+use App\Http\Requests\HallRequest;
 use App\Models\Fruit;
 use App\Models\Hall;
 use App\Models\Stall;
@@ -20,7 +21,7 @@ class HallController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(HallRequest $request)
     {
         $hall = new Hall();
         $hall->name = $request->input('name');
@@ -34,7 +35,7 @@ class HallController extends Controller
         return response()->json($hall);
     }
 
-    public function update(FruitRequest $request, string $id)
+    public function update(HallRequest $request, string $id)
     {
         /* @var Hall $hall */
         $hall = Hall::query()->findOrFail($id);

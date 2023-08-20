@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FruitRequest;
+use App\Http\Requests\StallRequest;
 use App\Models\Fruit;
 use App\Models\Stall;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class StallController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(StallRequest $request)
     {
         $stall = new Stall();
         $stall->name = $request->input('name');
@@ -33,7 +34,7 @@ class StallController extends Controller
         return response()->json($stall);
     }
 
-    public function update(FruitRequest $request, string $id)
+    public function update(StallRequest $request, string $id)
     {
         /* @var Stall $stall */
         $stall = Stall::query()->findOrFail($id);
