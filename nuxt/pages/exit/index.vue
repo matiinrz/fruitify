@@ -63,6 +63,8 @@ const object = ref({
 
 })
 
+object.value.entry_date = current()
+
 const setExit = async () => {
     loading.value = true
     const formData = new FormData();

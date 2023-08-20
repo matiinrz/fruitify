@@ -14,7 +14,7 @@
                 </v-list>
             </v-card-text>
             <v-card-actions class="justify-center">
-                <v-pagination v-model="filters.page" :length="halls.last_page"
+                <v-pagination v-model="filters.page" :length="halls.last_page" :total-visible="7"
                     @update:modelValue="getHalls()"></v-pagination>
             </v-card-actions>
         </v-card>

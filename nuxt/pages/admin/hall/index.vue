@@ -26,8 +26,8 @@
             </v-card-text>
             <v-divider />
             <v-card-actions class="justify-center">
-                <v-pagination v-model="filters.page" :length="halls?.last_page"
-                    @update:modelValue="getFruit()"></v-pagination>
+                <v-pagination v-model="filters.page" :length="halls?.last_page" :total-visible="7"
+                    @update:modelValue="getHalls()"></v-pagination>
             </v-card-actions>
 
         </v-card>

@@ -65,6 +65,8 @@ const object = ref({
     plate_image: ""
 })
 
+object.value.entry_date = current()
+
 const setEntry = async () => {
     loading.value = true
     const formData = new FormData();
