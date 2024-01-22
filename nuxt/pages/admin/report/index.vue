@@ -53,7 +53,7 @@
                                 item?.stall?.name
                             }}
                             </td>
-                            <td class="text-center" v-if="reportType === 'egress'">{{ item?.hall ? name }} - {{
+                            <td class="text-center" v-if="reportType === 'egress'">{{ item?.hall?.name }} - {{
                                 item?.stall?.name
                             }}
                             </td>
