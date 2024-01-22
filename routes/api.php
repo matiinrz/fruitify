@@ -3,6 +3,7 @@
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EgressController;
@@ -44,6 +45,7 @@ Route::group(['middleware' => ['auth:sanctum', 'optimizeImages']], function () {
     Route::resource('halls', HallController::class);
     Route::resource('stalls', StallController::class);
     Route::any('exports', [ExportController::class, 'index'])->name('download');
+    Route::any('pdf', [PdfController::class, 'download'])->name('download-pdf');
     Route::post('auth/logout', [AuthController::class, 'destroy']);
     Route::resource('entry', EntryController::class);
     Route::resource('egress', EgressController::class);

@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed province_id
  * @property mixed stall_id
  * @property mixed hall_id
+ * @property mixed price
  */
 class Egress extends Model
 {

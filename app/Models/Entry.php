@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed stall_id
  * @property mixed hall_id
  * @property false|mixed|string plate_image
+ * @property mixed price
  */
 class Entry extends Model
 {

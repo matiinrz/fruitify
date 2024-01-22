@@ -54,6 +54,7 @@ class EntryController extends Controller
             $entry->stall_id = $request->input('stall_id');
             $entry->hall_id = $request->input('hall_id');
             $entry->entry_date = $request->input('entry_date');
+            $entry->price = $request->input('price');
             $entry->weight = $fruit->weight;
             $entry->fruit_id = $fruit->fruit_id;
             $entry->user_id = auth()->id();
@@ -78,6 +79,7 @@ class EntryController extends Controller
         $entry->stall_id = $request->input('stall_id');
         $entry->hall_id = $request->input('hall_id');
         $entry->entry_date = $request->input('entry_date');
+        $entry->price = $request->input('price');
         $entry->weight = $request->input('weight');
         $entry->fruit_id = $request->input('fruit_id');
         $entry->user_id = auth()->id();

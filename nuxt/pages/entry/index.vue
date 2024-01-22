@@ -10,6 +10,7 @@
                 <plate-picker v-model="object.plate" />
                 <span v-if="errors?.plate">{{ errors?.plate || '' }}</span>
                 <persian-date-picker label="تاریخ" v-model="object.entry_date" :errors="errors?.entry_date" />
+                <v-text-field v-model="object.price" label="مبلغ (تومان)" :error="errors?.price"/>
                 <v-card-subtitle class="mb-2">مبدا</v-card-subtitle>
                 <v-row>
                     <v-col cols="6">
@@ -62,7 +63,8 @@ const object = ref({
     city_id: "",
     hall_id: "",
     stall_id: "",
-    plate_image: ""
+    plate_image: "",
+    price: ""
 })
 
 object.value.entry_date = current()
@@ -78,6 +80,7 @@ const setEntry = async () => {
     formData.append('city_id', object.value.city_id);
     formData.append('hall_id', object.value.hall_id);
     formData.append('stall_id', object.value.stall_id);
+    formData.append('price', object.value.price);
 
     if (object.value.plate_image) {
         formData.append('plate_image', object.value.plate_image);
