@@ -7,8 +7,9 @@
                 <v-select label="نوع گزارش" v-model="reportType" :items="reportsItem" item-title="name"
                     item-value="value" />
 
-                <v-btn class="mr-2" color="blue" icon="mdi-filter" @click="filtersDialog = true" />
-                <v-btn class="mr-2" color="green" icon="mdi-download" @click="downloadeExel()" />
+                <v-btn class="mr-2" color="blue" icon="mdi-filter" @click="filtersDialog = true"/>
+                <v-btn class="mr-2" color="green" icon="mdi-download" @click="downloadeExel()"/>
+                <v-btn class="mr-2" color="red darken-4" icon="mdi-file-pdf-box" @click="downloadPdf()"/>
             </v-card-subtitle>
             <v-divider />
             <!-- <v-card-actions>
@@ -196,6 +197,14 @@ const downloadeExel = async () => {
     })
     if (data?.value) {
         window.open(`http://serv.snapplr.top/storage/${data.value.path}`, '_blank', 'noreferrer')
+    }
+}
+const downloadPdf = async () => {
+    const {data, error} = await api('api/pdf', {
+        method: "POST",
+    })
+    if (data?.value) {
+        window.open(`${data.value}`, '_blank', 'noreferrer')
     }
 }
 
