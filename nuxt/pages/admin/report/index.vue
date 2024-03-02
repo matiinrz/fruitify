@@ -196,7 +196,7 @@ const downloadeExel = async () => {
 
     })
     if (data?.value) {
-        window.open(`http://serv.snapplr.top/storage/${data.value.path}`, '_blank', 'noreferrer')
+        window.open(`http://serv.sun-tech.ir/storage/${data.value.path}`, '_blank', 'noreferrer')
     }
 }
 const downloadPdf = async () => {
