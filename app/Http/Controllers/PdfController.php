@@ -28,7 +28,7 @@ class PdfController extends Controller
                 ];
             $totalPrice += (int)$item['price'];
         }
-        $pdf = new TCPDF('TCPDF', 'pt', 'A5', true, 'UTF-8', false);
+        $pdf = new TCPDF('TCPDF', 'pt', 'A4', true, 'UTF-8', false);
 
         $pdf->SetCreator('Your Company');
         $pdf->SetAuthor('Your Name');
