@@ -133,9 +133,9 @@ class PdfController extends Controller
         <div class="row">
             <div class="column">' . $item["item_weight"] . '</div>
             <div class="column">' . $item["item_name"] . '</div>
-            <div class="column">' . $item["weight"] . '</div>
+            <div class="column">' . $item["item_weight"] . '</div>
             <div class="column">' . $empty . '</div>
-            <div class="column">' . $empty . '</div>
+            <div class="column">' . $item["item_price"] . '</div>
             <div class="column">' . $empty . '</div>
         </div>
     ';
