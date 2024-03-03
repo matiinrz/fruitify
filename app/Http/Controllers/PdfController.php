@@ -38,8 +38,12 @@ class PdfController extends Controller
 
         $pdf->AddPage();
 
-        $html = '
-
+        $html = '<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
     <style>
         body {
             direction: rtl;
@@ -100,32 +104,32 @@ class PdfController extends Controller
             font-family: IrSans,serif !important;
         }
     </style>
-
-    <body>
-    <div class="invoice">
-        <div class="row">
-            <div class="column">سکو های اجاره ای سازمان میادین میوه و تره بار</div>
+</head>
+<body>
+<div class="invoice">
+    <div class="row">
+        <div class="column">سکو های اجاره ای سازمان میادین میوه و تره بار</div>
+    </div>
+    <div class="row">
+        <div class="column1">
+            <div class="rotate-text">فروشنده</div>
         </div>
-        <div class="row">
-            <div class="column1">
-                <div class="rotate-text">فروشنده</div>
-            </div>
-            <div class="column2">آقای: .............<br>آدرس: .............<br>تلفن: .............</div>
+        <div class="column2">آقای: .............<br>آدرس: .............<br>تلفن: .............</div>
+    </div>
+    <div class="row">
+        <div class="column1">
+            <div class="rotate-text">خریدار</div>
         </div>
-        <div class="row">
-            <div class="column1">
-                <div class="rotate-text">خریدار</div>
-            </div>
-            <div class="column2">صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............</div>
-        </div>
-        <div class="row">
-            <div class="column">وزن با ظرف</div>
-            <div class="column">نوع کالا</div>
-            <div class="column">تعداد</div>
-            <div class="column">ورن خالص</div>
-            <div class="column">فی</div>
-            <div class="column">قیمت کل به ریال</div>
-        </div>';
+        <div class="column2">صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............</div>
+    </div>
+    <div class="row">
+        <div class="column">وزن با ظرف</div>
+        <div class="column">نوع کالا</div>
+        <div class="column">تعداد</div>
+        <div class="column">ورن خالص</div>
+        <div class="column">فی</div>
+        <div class="column">قیمت کل به ریال</div>
+    </div>';
         // Start the loop
         $empty = '';
         foreach ($customArray as $item) {
