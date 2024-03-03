@@ -26,7 +26,7 @@ class PdfController extends Controller
                     'item_weight' => $item['weight'] . ' کیلوگرم ',
                     'item_price' => $item['price'] . ' تومان '
                 ];
-            $totalPrice += $item['price'];
+            $totalPrice += (int)$item['price'];
         }
         $pdf = new TCPDF('TCPDF', 'pt', 'A5', true, 'UTF-8', false);
 
