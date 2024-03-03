@@ -39,61 +39,126 @@ class PdfController extends Controller
         $pdf->AddPage();
 
         $html = '
-        <style>
-            *{
-                direction: rtl;
-            }
-            h2 {
-                color: #333;
-                font-size: 24px;
-                margin-bottom: 30px;
-                text-align: center;
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                direction: rtl;
-                margin-bottom: 30px;
-            }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 20px;
-                text-align: right;
-                direction: rtl;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-        </style>
-        <div style="direction: rtl; text-align: center">
-            <h3>سازمان میادین میوه و تره بار </h3>
-            <h3>استان اصفهان</h3>
-            <h4>فاکتور خروجی</h4>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>قیمت آیتم</th>
-                    <th>وزن آیتم</th>
-                    <th>نام آیتم</th>
-                </tr>
-            </thead>
-            <tbody>
-    ';
 
-        foreach ($customArray as $item) {
-            $html .= '
-            <tr>
-                <td>' . $item['item_price'] . '</td>
-                <td>' . $item['item_weight'] . '</td>
-                <td>' . $item['item_name'] . '</td>
-            </tr>
-        ';
+    <style>
+        body {
+            direction: rtl;
+            font-size: 18px;
         }
 
+        .invoice {
+            margin: 20px auto;
+            width: 21cm;
+            padding: 10px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column1 {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .column2 {
+            flex: 4;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .column {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .rotate-text {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform: rotate(-90deg);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .d-flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 15px;
+        }
+
+        @font-face {
+            font-family: irSans;
+            src: url("http://sun-tech.ir/fonts/iran-sans/persian-number.ttf");
+            font-weight: bold;
+        }
+
+        * {
+            font-family: IrSans,serif !important;
+        }
+    </style>
+
+    <body>
+    <div class="invoice">
+        <div class="row">
+            <div class="column">سکو های اجاره ای سازمان میادین میوه و تره بار</div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="rotate-text">فروشنده</div>
+            </div>
+            <div class="column2">آقای: .............<br>آدرس: .............<br>تلفن: .............</div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <div class="rotate-text">خریدار</div>
+            </div>
+            <div class="column2">صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............</div>
+        </div>
+        <div class="row">
+            <div class="column">وزن با ظرف</div>
+            <div class="column">نوع کالا</div>
+            <div class="column">تعداد</div>
+            <div class="column">ورن خالص</div>
+            <div class="column">فی</div>
+            <div class="column">قیمت کل به ریال</div>
+        </div>';
+        // Start the loop
+        $empty = '';
+        foreach ($customArray as $item) {
+            $html .= '
+        <div class="row">
+            <div class="column">' . $item["item_weight"] . '</div>
+            <div class="column">' . $item["item_name"] . '</div>
+            <div class="column">' . $item["weight"] . '</div>
+            <div class="column">' . $empty . '</div>
+            <div class="column">' . $empty . '</div>
+            <div class="column">' . $empty . '</div>
+        </div>
+    ';
+        }
         $html .= '
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="column">جمع کل به حروف :</div>
+        </div>
+        <div class="row">
+            <div class="column">
+                تذکر: اینجانب .................................... اجناس فوق الذکر را سالم تحویل و متعهد میشوم ظرف مدت 7 روز نسبت به
+                پرداخت وجه کالای خریداری شده اقدام و تسویه نمایم،بعد از گذشت زمان فوق در صورت عدم پرداخت فروشنده تام
+                الاختیار است در مراجع ذیصلاح اقدام قانونی به عمل آورد و حق هرگونه اعتراض را از خود سلب مینمایم.
+                <br>
+                <div class="d-flex">
+                    <div>مهر و امضاء فروشنده</div>
+                    <div>امضاء خریدار</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
     ';
         $pdf->writeHTML($html, true, false, true, false, '');
 
