@@ -14,4 +14,15 @@ return [
 	'icc_profile_path'      => '',
     'defaultCssFile'        => false,
     'pdfWrapper'            => 'misterspelik\LaravelPdf\Wrapper\PdfWrapper',
+    'font_path' => base_path('public/persian-number.ttf'),
+    'font_data' => [
+        'vazir' => [
+            'R'  => 'Vazir-FD.ttf',    // regular font
+            //'B'  => '',       // optional: bold font
+            //'I'  => '',     // optional: italic font
+            //'BI' => '', // optional: bold-italic font
+            'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
+            'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
+        ]
+    ]
 ];
