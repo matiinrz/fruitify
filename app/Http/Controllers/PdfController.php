@@ -14,7 +14,7 @@ class PdfController extends Controller
 {
     public function download(){
 
-        $pdf = PDF::loadView('pdf', compact([]));
+        $pdf = PDF::loadView('pdf');
         return $pdf->download('disney.pdf');
     }
 //    }
