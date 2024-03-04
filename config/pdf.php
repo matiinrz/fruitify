@@ -1,7 +1,8 @@
 <?php
 
 return [
-	'mode'                  => 'utf-8',
+    'default_font' => 'irsans',
+    'mode'                  => 'utf-8',
 	'format'                => 'A4',
 	'author'                => '',
 	'subject'               => '',
@@ -14,10 +15,10 @@ return [
 	'icc_profile_path'      => '',
     'defaultCssFile'        => false,
     'pdfWrapper'            => 'misterspelik\LaravelPdf\Wrapper\PdfWrapper',
-    'font_path' => base_path('public/persian-number.ttf'),
+    'font_path' => base_path('public/'),
     'font_data' => [
-        'vazir' => [
-            'R'  => 'Vazir-FD.ttf',    // regular font
+        'irsans' => [
+            'R'  => 'persian-number.ttf',    // regular font
             //'B'  => '',       // optional: bold font
             //'I'  => '',     // optional: italic font
             //'BI' => '', // optional: bold-italic font
