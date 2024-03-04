@@ -14,38 +14,41 @@
             margin: 20px auto;
             width: 21cm;
             padding: 10px;
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            border-collapse: collapse;
         }
 
-        .column1 {
-            padding: 5px;
-            border: 1px solid #000;
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-        }
-
-        .column2 {
-            padding: 5px;
-            border: 1px solid #000;
+        .row {
+            width: 100%;
+            overflow: hidden;
+            clear: both;
         }
 
         .column {
+            float: right;
+            width: calc(50% - 6px); /* subtracting margin and border */
             padding: 5px;
             border: 1px solid #000;
+            box-sizing: border-box;
         }
 
         .rotate-text {
+            writing-mode: tb-rl;
             white-space: nowrap;
-            overflow: hidden;
         }
 
-        .d-flex {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding-top: 15px;
+        .d-flex::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .d-flex > div {
+            width: 48%;
+            float: right;
+            margin-bottom: 15px;
+        }
+
+        .d-flex > div:last-child {
+            float: left;
         }
     </style>
 </head>
@@ -55,16 +58,20 @@
         <div class="column">سکو های اجاره ای سازمان میادین میوه و تره بار</div>
     </div>
     <div class="row">
-        <div class="column1">
+        <div class="column">
             <div class="rotate-text">فروشنده</div>
         </div>
-        <div class="column2">آقای: .............<br>آدرس: .............<br>تلفن: .............</div>
+        <div class="column">
+            آقای: .............<br>آدرس: .............<br>تلفن: .............
+        </div>
     </div>
     <div class="row">
-        <div class="column1">
+        <div class="column">
             <div class="rotate-text">خریدار</div>
         </div>
-        <div class="column2">صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............</div>
+        <div class="column">
+            صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............
+        </div>
     </div>
     <div class="row">
         <div class="column">وزن با ظرف</div>
