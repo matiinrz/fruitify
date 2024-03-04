@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Egress;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use misterspelik\LaravelPdf\Facades\Pdf;
-use Morilog\Jalali\Jalalian;
-use Psy\Util\Str;
-use TCPDF;
 
 class PdfController extends Controller
 {
