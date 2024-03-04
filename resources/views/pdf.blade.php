@@ -5,17 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
     <style>
+        body {
+            direction: rtl;
+            font-size: 18px;
+        }
 
+        .invoice {
+            margin: 20px auto;
+            width: 21cm;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            border-collapse: collapse;
+        }
 
-        /*@font-face {*/
-        /*    font-family: irSans;*/
-        /*    src: url("http://sun-tech.ir/fonts/iran-sans/persian-number.ttf");*/
-        /*    font-weight: bold;*/
-        /*}*/
+        .column1 {
+            padding: 5px;
+            border: 1px solid #000;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
 
-        /** {*/
-        /*    font-family: IrSans,serif !important;*/
-        /*}*/
+        .column2 {
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .column {
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .rotate-text {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .d-flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding-top: 15px;
+        }
     </style>
 </head>
 <body>
