@@ -13,7 +13,7 @@ return [
 	'pdf_a'                 => false,
 	'pdf_a_auto'            => false,
 	'icc_profile_path'      => '',
-    'defaultCssFile'        => false,
+    'defaultCssFile' => base_path('public/pdf-css.css'),
     'pdfWrapper'            => 'misterspelik\LaravelPdf\Wrapper\PdfWrapper',
     'font_path' => base_path('public/'),
     'font_data' => [

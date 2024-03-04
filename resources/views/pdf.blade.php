@@ -5,54 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
     <style>
-        body {
-            direction: rtl;
-            font-size: 18px;
-        }
 
-        .invoice {
-            margin: 20px auto;
-            width: 21cm;
-            padding: 10px;
-        }
-
-        .row {
-            display: flex;
-        }
-
-        .column1 {
-            flex: 1;
-            padding: 5px;
-            border: 1px solid #000;
-        }
-
-        .column2 {
-            flex: 4;
-            padding: 5px;
-            border: 1px solid #000;
-        }
-
-        .column {
-            flex: 1;
-            padding: 5px;
-            border: 1px solid #000;
-        }
-
-        .rotate-text {
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transform: rotate(-90deg);
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .d-flex {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding-top: 15px;
-        }
 
         /*@font-face {*/
         /*    font-family: irSans;*/
