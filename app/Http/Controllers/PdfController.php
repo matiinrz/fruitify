@@ -12,7 +12,7 @@ class PdfController extends Controller
     {
 
         $data = Egress::query()
-            ->whereDate('created_at', Carbon::today())
+            ->whereDate('created_at', Carbon::today()->subDays(2))
             ->with('fruit')->get();
         $customArray = [];
         $totalPrice = 0;
