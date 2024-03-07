@@ -9,92 +9,90 @@
             direction: rtl;
             font-size: 18px;
         }
-
         .invoice {
-            margin: 20px auto;
+            margin: 20px auto 0;
             width: 21cm;
             padding: 10px;
+            border-collapse: collapse;
+        }
+        .invoice2 {
+            margin: 0 auto;
+            width: 21cm;
+            padding: 20px;
+            border-collapse: collapse;
         }
 
-        .row {
-            width: 100%;
+        .column1 {
+            width: 7%;
+            padding: 15px;
+            border: 1px solid #000;
+            writing-mode: vertical-rl;
+            white-space: nowrap;
             overflow: hidden;
-            clear: both;
+        }
+
+        .column2 {
+            width: 80%;
+            padding: 5px;
+            border: 1px solid #000;
         }
 
         .column {
-            float: right;
-            width: calc(50% - 6px); /* subtracting margin and border */
             padding: 5px;
             border: 1px solid #000;
-            box-sizing: border-box;
+            width: 16.67%; /* Equal width for each column */
         }
 
         .rotate-text {
-            writing-mode: tb-rl;
             white-space: nowrap;
+            overflow: hidden;
         }
 
-        .d-flex::after {
-            content: "";
-            display: block;
-            clear: both;
+        .d-flex {
+            width: 100%;
+            text-align: center;
         }
 
-        .d-flex > div {
+        .d-flex div {
+            display: inline-block;
             width: 48%;
-            float: right;
-            margin-bottom: 15px;
-        }
-
-        .d-flex > div:last-child {
-            float: left;
         }
     </style>
 </head>
 <body>
-<div class="invoice">
-    <div class="row">
-        <div class="column">سکو های اجاره ای سازمان میادین میوه و تره بار</div>
-    </div>
-    <div class="row">
-        <div class="column">
+<table class="invoice">
+    <tr class="row">
+        <td class="column" colspan="6" style="text-align: center;">سکو های اجاره ای سازمان میادین میوه و تره بار</td>
+    </tr>
+    <tr class="row">
+        <td class="column1">
             <div class="rotate-text">فروشنده</div>
-        </div>
-        <div class="column">
-            آقای: .............<br>آدرس: .............<br>تلفن: .............
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">
+        </td>
+        <td class="column2">آقای: .............<br>آدرس: .............<br>تلفن: .............</td>
+    </tr>
+    <tr class="row">
+        <td class="column1">
             <div class="rotate-text">خریدار</div>
-        </div>
-        <div class="column">
-            صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">وزن با ظرف</div>
-        <div class="column">نوع کالا</div>
-        <div class="column">تعداد</div>
-        <div class="column">ورن خالص</div>
-        <div class="column">فی</div>
-        <div class="column">قیمت کل به ریال</div>
-    </div>
-    <div class="row">
-        <div class="column">&nbsp;</div>
-        <div class="column">&nbsp;</div>
-        <div class="column">&nbsp;</div>
-        <div class="column">&nbsp;</div>
-        <div class="column">&nbsp;</div>
-        <div class="column">&nbsp;</div>
-    </div>
-    <div class="row">
-        <div class="column">جمع کل به حروف :</div>
-    </div>
-    <div class="row">
-        <div class="column">
-            تذکر: اینجانب .................................... اجناس فوق الذکر را سالم تحویل و متعهد میشوم ظرف مدت 7 روز نسبت به
+        </td>
+        <td class="column2">صورت حساب آقای: .............<br>به آدرس: .............<br>تلفن: .............</td>
+    </tr>
+</table>
+<table class="invoice2">
+    <tr class="row">
+        <td class="column" style="width: 16.67%;">وزن با ظرف</td>
+        <td class="column" style="width: 16.67%;">نوع کالا</td>
+        <td class="column" style="width: 16.67%;">تعداد</td>
+        <td class="column" style="width: 16.67%;">وزن خالص</td>
+        <td class="column" style="width: 16.67%;">فی</td>
+        <td class="column" style="width: 16.67%;">قیمت کل به ریال</td>
+    </tr>
+    <tr class="row">
+        <td class="column" colspan="6">جمع کل به حروف :</td>
+    </tr>
+    <tr class="row">
+        <td class="column" colspan="6">
+            تذکر: اینجانب .................................... اجناس فوق الذکر را سالم تحویل و متعهد میشوم ظرف مدت 7 روز
+            نسبت به
             پرداخت وجه کالای خریداری شده اقدام و تسویه نمایم،بعد از گذشت زمان فوق در صورت عدم پرداخت فروشنده تام
             الاختیار است در مراجع ذیصلاح اقدام قانونی به عمل آورد و حق هرگونه اعتراض را از خود سلب مینمایم.
             <br>
@@ -102,8 +100,8 @@
                 <div>مهر و امضاء فروشنده</div>
                 <div>امضاء خریدار</div>
             </div>
-        </div>
-    </div>
-</div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
