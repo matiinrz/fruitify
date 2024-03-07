@@ -11,19 +11,19 @@
         }
         .invoice {
             margin: 20px auto 0;
-            width: 21cm;
+            width: 17cm;
             padding: 10px;
             border-collapse: collapse;
         }
         .invoice2 {
             margin: 0 auto;
-            width: 21cm;
+            width: 17cm;
             padding: 20px;
             border-collapse: collapse;
         }
 
         .column1 {
-            width: 7%;
+            width: 15%;
             padding: 15px;
             border: 1px solid #000;
             writing-mode: vertical-rl;
@@ -32,7 +32,7 @@
         }
 
         .column2 {
-            width: 80%;
+            width: 85%;
             padding: 5px;
             border: 1px solid #000;
         }
