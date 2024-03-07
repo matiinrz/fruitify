@@ -7,14 +7,16 @@
     <style>
         body {
             direction: rtl;
-            font-size: 18px;
+            font-size: 14px;
         }
+
         .invoice {
             margin: 20px auto 0;
             width: 17cm;
             padding: 10px;
             border-collapse: collapse;
         }
+
         .invoice2 {
             margin: 0 auto;
             width: 17cm;
@@ -38,6 +40,12 @@
         }
 
         .column {
+            padding: 5px;
+            border: 1px solid #000;
+            width: 16.67%; /* Equal width for each column */
+        }
+
+        .columnData {
             padding: 5px;
             border: 1px solid #000;
             width: 16.67%; /* Equal width for each column */
@@ -86,6 +94,16 @@
         <td class="column" style="width: 16.67%;">فی</td>
         <td class="column" style="width: 16.67%;">قیمت کل به ریال</td>
     </tr>
+    @foreach($data as $item)
+        <tr class="row">
+            <td class="columnData">{{ $item['item_weight'] }}</td>
+            <td class="columnData">{{ $item['item_name'] }}</td>
+            <td class="columnData">{{ $item['item_weight'] }}</td>
+            <td class="columnData">{{ $item['item_weight'] }}</td>
+            <td class="columnData">{{ $item['item_price'] }}</td>
+            <td class="columnData">{{ $item['item_price'] }}</td>
+        </tr>
+    @endforeach
     <tr class="row">
         <td class="column" colspan="6">جمع کل به حروف :</td>
     </tr>
