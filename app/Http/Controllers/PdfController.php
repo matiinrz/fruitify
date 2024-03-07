@@ -15,7 +15,7 @@ class PdfController extends Controller
             ->with('fruit')->get();
         if (empty($data)) {
             return response()->json(['message' => 'در این روز داده ای موجود نیست']);
-        }
+        } else return response()->json($data);
         $array = [];
         $totalPrice = 0;
         foreach ($data as $item) {
