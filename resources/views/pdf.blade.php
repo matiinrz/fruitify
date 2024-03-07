@@ -94,7 +94,7 @@
         <td class="column" style="width: 16.67%;">فی</td>
         <td class="column" style="width: 16.67%;">قیمت کل به ریال</td>
     </tr>
-    @foreach($data as $item)
+    @foreach($array as $item)
         <tr class="row">
             <td class="columnData">{{ $item['item_weight'] }}</td>
             <td class="columnData">{{ $item['item_name'] }}</td>

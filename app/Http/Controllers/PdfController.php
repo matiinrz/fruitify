@@ -14,11 +14,11 @@ class PdfController extends Controller
         $data = Egress::query()
             ->whereDate('created_at', Carbon::today()->subDays(2))
             ->with('fruit')->get();
-        $customArray = [];
+        $array = [];
         $totalPrice = 0;
         foreach ($data as $item) {
             if (!empty($item['fruit']) && isset($item['fruit']))
-                $customArray[] = [
+                $array[] = [
                     'item_name' => $item['fruit']['name'],
                     'item_weight' => $item['weight'] . ' کیلوگرم ',
                     'item_price' => $item['price'] . ' تومان '
@@ -26,7 +26,7 @@ class PdfController extends Controller
             $totalPrice += (int)$item['price'];
         }
 
-        $pdf = PDF::loadView('pdf', compact($customArray));
+        $pdf = PDF::loadView('pdf', compact($array));
         return $pdf->download('disney.pdf');
     }
 
