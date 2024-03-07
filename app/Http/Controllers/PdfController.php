@@ -11,7 +11,7 @@ class PdfController extends Controller
     public function download()
     {
         $data = Egress::query()
-            ->whereDate('created_at', Carbon::today()->subDays(2))
+            ->whereDate('created_at', Carbon::today())
             ->with('fruit')->get();
         if (empty($data)) {
             return response()->json(['message' => 'در این روز داده ای موجود نیست']);
