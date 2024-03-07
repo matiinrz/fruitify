@@ -14,9 +14,9 @@ class PdfController extends Controller
         $data = Entry::query()
             ->whereDate('created_at', Carbon::today())
             ->with('fruit')->get();
-        if (empty($data)) {
-            return response()->json(['message' => 'در این روز داده ای موجود نیست']);
-        } else return response()->json($data);
+//        if (empty($data)) {
+//            return response()->json(['message' => 'در این روز داده ای موجود نیست']);
+//        } else return response()->json($data);
         $array = [];
         $totalPrice = 0;
         foreach ($data as $item) {
