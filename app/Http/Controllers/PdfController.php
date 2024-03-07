@@ -14,6 +14,9 @@ class PdfController extends Controller
         $data = Egress::query()
             ->whereDate('created_at', Carbon::today()->subDays(2))
             ->with('fruit')->get();
+        if (empty($data)) {
+            return response()->json(['message' => 'در این روز داده ای موجود نیست']);
+        }
         $array = [];
         $totalPrice = 0;
         foreach ($data as $item) {
