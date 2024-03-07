@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Egress;
+use App\Models\Entry;
 use Illuminate\Support\Carbon;
 use misterspelik\LaravelPdf\Facades\Pdf;
 
@@ -10,7 +11,7 @@ class PdfController extends Controller
 {
     public function download()
     {
-        $data = Egress::query()
+        $data = Entry::query()
             ->whereDate('created_at', Carbon::today())
             ->with('fruit')->get();
         if (empty($data)) {
