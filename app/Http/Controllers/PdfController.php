@@ -10,7 +10,6 @@ class PdfController extends Controller
 {
     public function download()
     {
-
         $data = Egress::query()
             ->whereDate('created_at', Carbon::today()->subDays(2))
             ->with('fruit')->get();
@@ -29,7 +28,7 @@ class PdfController extends Controller
             $totalPrice += (int)$item['price'];
         }
 
-        $pdf = PDF::loadView('pdf', ['array' => $data]);
+        $pdf = PDF::loadView('pdf', ['array' => $array]);
         return $pdf->download('disney.pdf');
     }
 
