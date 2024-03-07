@@ -29,7 +29,7 @@ class PdfController extends Controller
             $totalPrice += (int)$item['price'];
         }
 
-        $pdf = PDF::loadView('pdf', $array);
+        $pdf = PDF::loadView('pdf', ['array' => $data]);
         return $pdf->download('disney.pdf');
     }
 
