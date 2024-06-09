@@ -9,7 +9,7 @@
                     <v-col cols="12">
                         <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
-                                <v-img height="200" src="/images/entry-image.png" />
+                                <v-img height="200" src="/images/truck-input.webp" />
                             </v-card-title>
                             <v-card-text class="ma-2 text-center">
                                 <v-btn block class="mt-2 text-white" color="#618600" size="large" to="/entry">ثبت
@@ -20,7 +20,7 @@
                     <v-col cols="12">
                         <v-card elevation="2" class="rounded-lg" color="white">
                             <v-card-title class="d-flex justify-center">
-                                <v-img height="200" src="/images/exit-image.png" />
+                                <v-img height="200" src="/images/truck-export.webp" />
                             </v-card-title>
                             <v-card-text class="ma-2 text-center">
                                 <v-btn block class="mt-2 text-white" color="#0096A7" size="large" to="/exit">ثبت
